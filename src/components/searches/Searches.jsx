@@ -34,7 +34,7 @@ const renderTag = (taghead, tagline, navigate) => {
                     navigate(`/listproperty/tag?tagline=${link.id}`)
                   }
                 >
-                  {link.title}
+                  {link.title[0].toUpperCase() + link.title.slice(1)}
                 </p>
               );
             }

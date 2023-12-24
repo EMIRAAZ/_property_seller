@@ -121,7 +121,7 @@ const PropertyView = (props) => {
               {/* <p className="heading"> {property.propertyS}tatusssssssssss</p> */}
               <p className="heading1">{property.title}</p>
               <p className="price">{'AED ' +new Intl.NumberFormat('en-IN').format(property.price)}</p>
-              <div className="spec">
+              <div className="spec spe">
                 <div className="spec-wrap">
                   <Bed
                     className="property-bed"
@@ -332,7 +332,7 @@ const PropertyView = (props) => {
 
                   onClick={() =>
                     window.open(
-                      `https://wa.me/+971521278701/?text=Hello Property Seller. I’m interested in this property %0a%0aLink: http://propertyseller.ae/property/${property.id}
+                      `https://wa.me/+971521278701/?text=Hello Property Seller. I’m interested in this property %0a%0aLink: https://propertyseller.ae/property/${property.id}
               %0a%0aPrice: AED ${property.price}
               %0aLocation: ${property.address.city}
                 
@@ -353,7 +353,7 @@ const PropertyView = (props) => {
                   className="service-btn-property whatsapp"
                   onClick={() =>
                     window.open(
-                      `https://wa.me/+971521278701/?text=Hello Property Seller. I’m interested in this property %0a%0aLink: http://propertyseller.ae/property/${property.id}
+                      `https://wa.me/+971521278701/?text=Hello Property Seller. I’m interested in this property %0a%0aLink: https://propertyseller.ae/property/${property.id}
               %0a%0aPrice: AED ${property.price}
               %0aLocation: ${property.address.city}
                 

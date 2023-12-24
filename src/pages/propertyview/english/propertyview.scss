@@ -95,6 +95,7 @@
             color: #6565d6;
           }
           .spec {
+           
             display: flex;
             flex-wrap: wrap;
             gap: 15px 0px;
@@ -586,4 +587,24 @@
       }
     }
   }
+}
+
+
+@media(max-width:400px){
+  .main-container
+  {
+    .content-container{
+
+      .left-container{
+
+        .details{
+
+          .spec.spe {
+            gap: 15px;
+          }
+        } 
+      } 
+    } 
+  } 
+  
 }

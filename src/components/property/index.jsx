@@ -82,7 +82,7 @@ const Property = props => {
           className="property-rectangle share"
           onClick={() =>
             window.open(
-              `https://wa.me/?text=Hello, I found this Property on ${TITLE} please check it out and tell me how do you feel.  %0a%0ahttp://propertyseller.ae/property/${props.id}
+              `https://wa.me/?text=Hello, I found this Property on ${TITLE} please check it out and tell me how do you feel.  %0a%0ahttps://propertyseller.ae/property/${props.id}
              `
             )
           }
@@ -175,7 +175,7 @@ const Property = props => {
             // onClick={() => window.open("tel:+971553011274", "_blank")}
             onClick={() =>
               window.open(
-                `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: http://propertyseller.ae/property/${props.id}
+                `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: https://propertyseller.ae/property/${props.id}
               %0a%0aPrice: AED ${props.price}
               %0aLocation: ${props.address.city}
                 
@@ -192,7 +192,7 @@ const Property = props => {
             className="service-btn-property whatsapp"
             onClick={() =>
               window.open(
-                `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: http://propertyseller.ae/property/${props.id}
+                `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: https://propertyseller.ae/property/${props.id}
               %0a%0aPrice: AED ${props.price}
               %0aLocation: ${props.address.city}
                 

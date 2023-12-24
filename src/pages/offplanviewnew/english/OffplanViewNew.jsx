@@ -508,7 +508,7 @@ const NewFooter = ({ property }) => {
             className="wp-div"
             onClick={() =>
               window.open(
-                `https://wa.me/+971553011274/?text=Hello Property Seller. I’m interested in this property %0a%0aLink: http://propertyseller.ae/property/${property.id}
+                `https://wa.me/+971553011274/?text=Hello Property Seller. I’m interested in this property %0a%0aLink: https://propertyseller.ae/property/${property.id}
               %0a%0aPrice: AED ${property.price}
               %0aLocation: ${property.address.city}
                 

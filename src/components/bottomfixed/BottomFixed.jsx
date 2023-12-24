@@ -15,7 +15,7 @@ function BottomFixed({ property }) {
 
           onClick={() =>
             window.open(
-              `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: http://propertyseller.ae/property/${property.id}
+              `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: https://propertyseller.ae/property/${property.id}
               %0a%0aPrice: AED ${property.price}
               %0aLocation: ${property.address.city}
                 %0aReference: ${property.id}
@@ -30,7 +30,7 @@ function BottomFixed({ property }) {
           className="service-btn-property whatsapp"
           onClick={() =>
             window.open(
-              `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: http://propertyseller.ae/property/${property.id}
+              `https://wa.me/+971553011274/?text=Hello ${TITLE}. I’m interested in this property %0a%0aLink: https://propertyseller.ae/property/${property.id}
               %0a%0aPrice: AED ${property.price}
               %0aLocation: ${property.address.city}
                 %0aReference: ${property.id}
