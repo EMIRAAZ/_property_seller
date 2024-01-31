@@ -8,8 +8,8 @@ const SearchIcon = ({
   return (
     <div className={className}>
       <svg
-        width="25"
-        height="20"
+        width="3.823vh"
+        height="3.058vh"
         viewBox="0 0 15 23"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

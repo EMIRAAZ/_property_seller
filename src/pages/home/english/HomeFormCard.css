@@ -1,0 +1,215 @@
+
+    .form-home-overlap-container {
+  width: 74.924vh;
+  height: auto;
+  gap: 1.988vh;
+  display: inline-flex;
+  padding: 3.364vh 4.128vh 3.364vh 3.823vh;
+  border-radius: 3.058vh;
+  background: #fff;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+.form-home-overlap-container .form-home-div {
+  display: flex;
+  gap: 1.07vh;
+  flex-direction: column;
+}
+.form-home-overlap-container .form-home-div .icons-div {
+  display: flex;
+  gap: 3.058vh;
+  flex-direction: row;
+}
+.form-home-overlap-container .form-home-location-div {
+  border-radius: 1.529vh;
+  border: 0.229vh solid #e4e4e4;
+  background: #f7f7f7;
+  gap: 2.294vh;
+  display: flex;
+  padding: 1.988vh 2.488vh 1.988vh 2.141vh;
+}
+.form-home-overlap-container .form-home-location-div input {
+  background: transparent;
+
+  font-size: 2.446vh;
+    width: 100%;
+  flex: 1;
+  outline: none;
+}
+.form-home-overlap-container .form-home-location-div input::placeholder {
+  color: #666;
+
+  font-family: Poppins;
+  font-size: 2.141vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.form-home-overlap-container .form-home-label-name {
+  color: #666;
+  font-family: Poppins;
+  font-size: 2.141vh;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.form-home-overlap-container .form-home-div .form-home-propertyType-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-home-div .form-home-propertyType-container .form-home-propertyType-type {
+  height: 5.657vh;
+  cursor: pointer;
+  padding: 1.223vh 2.752vh;
+  border-radius: 1.529vh;
+  border: 0.229vh solid #e4e4e4;
+  background: #f7f7f7;
+  color: #666;
+  font-family: Poppins;
+  font-size: 2.141vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.form-home-div .form-home-propertyType-container .form-home-bedRoom {
+  height: 5.657vh;
+  cursor: pointer;
+  padding: 0px 1.988vh;
+  border-radius: 1.529vh;
+  border: 0.229vh solid #e4e4e4;
+  background: #f7f7f7;
+  color: #666;
+  font-family: Poppins;
+  font-size: 2.141vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-home-div
+  .form-home-propertyType-container
+  .form-home-bedRoom:first-child {
+  padding: 0px 2.752vh;
+}
+.form-home-div .price-section .price-section-container {
+  display: flex;
+  gap: 1.529vh;
+}
+.form-home-div .price-section .price-div {
+  width: 19.113vh;
+  display: flex;
+  height: 8.104vh;
+  border-radius: 1.529vh;
+  border: 0.229vh solid #e4e4e4;
+  color: #666;
+  font-family: Poppins;
+  font-size: 2.141vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.price-section {
+  display: flex;
+  gap: 1.529vh;
+  flex-direction: row;
+}
+
+.price-section .filter-btn-div {
+  border-radius: 1.529vh;
+  background: linear-gradient(0deg, #000 0%, #000 100%),
+    linear-gradient(95deg, rgba(0, 0, 0, 0.7) 0.58%, rgba(0, 0, 0, 0.5) 98.27%);
+  backdrop-filter: blur(2.294vh);
+  width: 24.465vh;
+  height: 8.104vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.price-section .filter-btn-div button {
+  color: #ebebeb;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 1.835vh;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+
+
+
+/* price list */
+.price-section .price-from-lists{
+    height: 30.581vh;
+    transition: all 0.5s;
+    overflow-x: auto;
+    overflow-y: scroll;
+    position: absolute;
+    background-color: white;
+    width: 27.523vh;
+    top: 10.703vh;
+    border-radius: 0.917vh;
+    left: 0px 
+}
+.price-section .price-from-lists .price-from-list{
+    
+    letter-spacing: 0.153vh;
+    /* background-color: red; */
+    color: #000000a6;
+    padding: 0.765vh 2.294vh;
+}
+.price-section .price-from-lists .price-from-list.active{
+    background-color: #a4a4a452;
+}
+.price-section .price-section-container .price-div.active{
+    border: 0.153vh solid #00000073;
+    color: #000000c9;
+}
+
+
+
+
+/* mobile screen (under 600px ) */
+
+
+@media(max-width:600px){
+.form-home-overlap-container{
+    width: 90%;
+    height: auto;
+    gap: 2.294vh;
+}
+.form-home-overlap-container .form-home-div .form-home-propertyType-container {
+    justify-content: unset;
+    gap: 0.765vh;
+}
+.form-home-div .form-home-propertyType-container .form-home-propertyType-type{
+    margin: 0.459vh 0px;
+}
+.price-section{
+    flex-direction: column;
+}
+.form-home-div .price-section .price-div{
+    width: 100%;
+}
+.price-section .filter-btn-div{
+    width: 100%;
+}
+}
+
+.form-home-propertyType-container .form-home-propertyType-type.active{
+    border: 0.153vh solid #00000073;
+    color: #000000c9;
+}
+.form-home-div .form-home-propertyType-container .bed-active{
+    border: 0.153vh solid #00000073;
+    color: #000000c9;
+}

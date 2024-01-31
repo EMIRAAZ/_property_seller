@@ -1,0 +1,134 @@
+.home-banner {
+  margin-top: 2.294vh;
+  position: relative;
+}
+.overlap-shade {
+  position: absolute;
+  background-color: #181a1878;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+}
+.home-banner-container {
+  overflow: hidden;
+  width: 99%;
+  position: relative;
+  margin: auto;
+  height: calc(100vh - 16.82vh);
+  min-height: 61.162vh;
+  border-radius: 1.835vh;
+}
+.home-banner-container img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.home-banner-content {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  gap: 3.058vh;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.home-banner-content .home-banner-mainTitle p {
+  color: #fff;
+  text-align: center;
+  font-size: 10.703vh;
+  font-style: normal;
+  font-weight: 400;
+}
+.home-banner-content .home-banner-button-container {
+  display: flex;
+  gap: 2.752vh;
+}
+
+.home-banner-content .home-banner-buttons-div {
+  display: flex;
+  padding: 2.599vh 3.823vh;
+  border-radius: 1.529vh;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 2.446vh;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.529vh;
+  gap: 1.529vh;
+  display: flex;
+  padding: 2.599vh 3.823vh;
+  justify-content: center;
+  align-items: center;
+  gap: 1.529vh;
+}
+.banner-left-arrow {
+  position: absolute;
+  z-index: 1;
+  top: 3.823vh;
+  border-radius: 3.058vh;
+  left: 3.058vh;
+}
+
+.city-based-properties-div{
+  border-radius: 10px;
+  border: 1px solid #D2D2D2;
+  background: #FAFAFA;
+}
+@media (max-width: 800px) {
+  .home-english .home-property-type {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-banner {
+    margin-top: 0rem;
+    display: flex;
+    justify-content: center;
+  }
+  .home-banner-container {
+    width: 100%;
+    border-radius: 0rem;
+    height: 100vh;
+  }
+  .home-banner-content {
+    height: 65%;
+    justify-content: space-between;
+    bottom: 4.587vh;
+    top: unset;
+    z-index: 2;
+  }
+  .home-banner-content .home-banner-mainTitle p {
+    font-size: 7.645vh;
+  }
+  .home-banner-content .home-banner-button-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .home-banner-content .home-banner-buttons-div {
+    width: 50.459vh;
+    height: 12.232vh;
+  }
+}
+
+@media (max-width: 476px) {
+  .home-english .property-type {
+    width: 90%;
+  }
+}
+
+@media (max-width: 280px) {
+  .home-banner-content .home-banner-buttons-div {
+    width: 90%;
+    margin: 0px 10px;
+  }
+}
+

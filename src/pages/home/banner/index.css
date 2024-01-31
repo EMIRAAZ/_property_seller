@@ -1,0 +1,46 @@
+.mobile-banner-main-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 20px;
+    width: 95%;
+    display: none;
+    overflow: hidden;   
+}
+.desktop-banner{
+    display: block;
+}
+.mobile-banner-main-container .mobile-banner-image-container{
+    position: relative;
+}
+.mobile-banner-main-container .mobile-banner-image-container .mobile-screen-shade{
+    background: linear-gradient(180deg, rgba(26, 33, 33, 0.4150035014) 34%, rgba(208, 232, 232, 0.1068802521) 55%, rgb(0, 0, 0) 88%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.mobile-banner-main-container .mobile-banner-image-container .mobile-screen-shade{
+
+}
+.mobile-banner-main-container .mobile-banner-content-container {
+    background-color: black;
+    padding: 25px;
+}
+
+.mobile-banner-main-container .mobile-banner-content-container{
+    background-color: black;
+    padding: 25px;
+}
+
+.mobile-banner-main-container .mobile-banner-content-container button{
+    margin-top: 10px;
+}
+
+@media (max-width:996px){
+    .mobile-banner-main-container{
+        display: block;
+    }
+    .home-english .desktop-banner{
+        display: none;
+    }
+}

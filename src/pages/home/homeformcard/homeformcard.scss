@@ -1,25 +1,25 @@
 .home-form-card {
   z-index: 1;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-  left: 0;
-  right: 0;
-  top: 155px;
+  // position: absolute;
+  // margin-left: auto;
+  // margin-right: auto;
+  padding: 30px 25px;
+  // left: 0;
+  // right: 0;
+  // top: 155px;
   background-color: #ffffff;
   border-radius: 8px;
-  width: 90%;
+  // width: 90%;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.01) 0px 0px 0px 0px;
 
   .home-formcard {
-    background-color: #f3f3fa;
-    border-radius: 8px;
+    // background-color: #f3f3fa;
+    // border-radius: 8px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px 8px;
-    padding: 10px 10px 10px 10px;
+    // padding: 10px 10px 10px 10px;
     margin: 0px auto;
     width: 100%;
     transition: 1s;
@@ -29,8 +29,23 @@
       grid-column-start: 1;
       grid-column-end: 5;
     }
+    .form-propertyType-container{
+       .form-propertyType-div{
+        padding: 8px 21px;
+        border-radius: 10px;
+        border: 1.5px solid #E4E4E4;
+        background: #F7F7F7;
+         .form-propertyType-button{
+          color: #666;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 400;
+         }
+       }
+    }
 
     .search {
+      
       grid-row-start: 2;
       grid-column-start: 1;
       grid-column-end: 5;
@@ -91,12 +106,12 @@
 @media only screen and (min-width: 600px) {
   .home-form-card {
     width: 65%;
-    top: 220px;
+    // top: 220px;
 
     .home-formcard {
-      padding: 10px 10px 10px 10px;
+      // padding: 10px 10px 10px 10px;
 
-      gap: 8px 10px;
+      // gap: 8px 10px;
 
       .emirate {
         grid-row-start: 1;

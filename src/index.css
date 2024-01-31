@@ -1,6 +1,30 @@
+@font-face {
+  font-family: 'sf-pro-display-bold';
+  font-family: '';
+  src: url('../public/assets/fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'sf-pro-display-medium';
+  src: url('../public/assets/fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'sf-pro-display-regular';
+  src: url('../public/assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 .header-border-cls {
   border-bottom: 1px solid #efeff0;
@@ -9,3 +33,4 @@
 .mt-7rem{
   margin-top: 7rem;
 }
+

@@ -1,25 +1,93 @@
-import './home.scss';
-import { useNavigate } from 'react-router-dom';
-import Header from '../../../components/header';
-import ImageFrame from '../imageframe';
-import HomeFormCard from '../homeformcard';
-import ViewAll from '../viewall';
-import HomeCategory from '../homecategory';
-import RenderComponent from '../../../components/renderComponent';
-import { MoveToTop } from '../../../components/movetotop';
-import Searches from '../../../components/searches';
-import { useEffect, useState } from 'react';
-import FooterNew from '../../../components/footerNew';
+import "./home.scss";
+import { useNavigate } from "react-router-dom";
+import HeaderOld from '../../../components/header';
+// import ImageFrame from "../imageframe";
+// import HomeFormCard from "../homeformcard";
+import HomeFormCard from "./HomeFormCard";
+// import ViewAll from "../viewall";
+import HomeCategory from "../homecategory";
+// import RenderComponent from "../../../components/renderComponent";
+// import { MoveToTop } from "../../../components/movetotop";
+import Searches from "../../../components/searches";
+import { useEffect, useState } from "react";
+import FooterNew from "../../../components/footerNew";
 
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
+import Header from "../../../components/newHeader";
+import HomeBanner from "./HomeBanner";
+import { HomeIcon } from "../../../components/svgicons";
+import SearchIcon from "../../../components/svg/search";
+import TitleComponent from "../../../components/TitleComponent";
+import Banner from "../banner/Banner";
+import Blog from "./Blog";
+// import "../../dailyblog/english/blog.scss";
+// import HomeBanner from './HomeBanner';
+// import './Blog.scss';
 
-const Home = props => {
-  const navigate = useNavigate();
+const Home = (props) => {
+  const [bannerFormUi, setBannerForUi] = useState(false);
+  // const navigate = useNavigate();
   useEffect(() => {
     props.clearHomeProperty();
+
+    props.getBlogWeb();
   }, []);
 
+  console.log(bannerFormUi, "bannerFormUi");
   const [advancedSearch, setAdvancedSearch] = useState(false);
+
+  const handleClickSearch = (status) => {
+    setBannerForUi(status);
+  };
+
+  const image_obj = [
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1682687982470-8f1b0e79151a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1706362723628-60e8f1929ffe?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1706354924674-0304751469e8?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
+
+  const propertyTypeObjData = [
+    {
+      name: "Apartment",
+      paragraph: "84 New Properties Available",
+      imageSrc: "/assets/pic/apartment.jpeg",
+    },
+    {
+      name: "Villa",
+      paragraph: "84 New Properties Available",
+      imageSrc: "/assets/pic/villa.jpeg",
+    },
+    {
+      name: "Townhouse",
+      paragraph: "84 New Properties Available",
+      imageSrc: "/assets/pic/town-house.jpeg",
+    },
+    {
+      name: "Penthouse",
+      paragraph: "84 New Properties Available",
+      imageSrc: "/assets/pic/pen-house.jpeg",
+    },
+  ];
+
+  const renderCard = () =>
+    props.blogs.map((item, i) => <Blog key={i} {...item} />);
 
   return (
     <div className="home-english">
@@ -75,33 +143,293 @@ const Home = props => {
           content="Freehold Properties in Dubai | Residential Properties in Dubai | Commercial properties in UAE - Property Seller"
         />
       </Helmet>
-
-      <Header customClass="home-header-class" />
-      <ImageFrame advancedSearch={advancedSearch} />
-      <HomeFormCard
-        onInputChange={props.onHomeSearchInputChange}
-        onSearchLocation={props.getHomeLocationSearch}
-        homeSearch={props.homeSearch}
-        onSearch={params => {
-          navigate(`/property-search?limit=6&offset=0${params}`);
-        }}
-        advancedSearch={advancedSearch}
-        setAdvancedSearch={setAdvancedSearch}
-      />
-      <HomeCategory advancedSearch={advancedSearch} />
-      <div className="w-full p-5 bg-black text-white font-bold text-xl flex justify-center banner-cls sm:text-lg">
-        Explore what is up for&nbsp;
-        <span style={{ color: '#FCA120' }}>sale</span>
+      {/* <Header customClass="home-header-class" /> */}
+      <HeaderOld customClass="home-header-class" />
+      <Header />
+      <HomeBanner
+        stateForButton={bannerFormUi}
+        handleClickSearch={handleClickSearch}
+      >
+        {!bannerFormUi && (
+          <>
+            <div className="home-banner-mainTitle">
+              <p className="font-sf-pro-regular">New Properties, Everyday...</p>
+            </div>
+            <div className="home-banner-button-container">
+              <div
+                className="home-banner-buttons-div bg-pure-black text-pure-white cursor-pointer"
+                onClick={() => handleClickSearch(true)}
+              >
+                <SearchIcon fill="#fff" />
+                <button>Property Search</button>
+              </div>
+              <div className="home-banner-buttons-div bg-pure-white text-black">
+                <HomeIcon fill={"#"} />
+                <button>All Properties</button>
+              </div>
+            </div>
+          </>
+        )}
+        {bannerFormUi && (
+          // <HomeFormCard
+          //   onInputChange={props.onHomeSearchInputChange}
+          //   onSearchLocation={props.getHomeLocationSearch}
+          //   homeSearch={props.homeSearch}
+          //   onSearch={(params) => {
+          //     console.log(params,'params')
+          //     navigate(`/property-search?limit=6&offset=0${params}`);
+          //   }}
+          //   advancedSearch={advancedSearch}
+          //   setAdvancedSearch={setAdvancedSearch}
+          // />
+          <HomeFormCard />
+        )}
+      </HomeBanner>
+      {/* <ImageFrame advancedSearch={advancedSearch} /> */}
+      <div className="mt-20 mb-20">
+        <HomeCategory advancedSearch={advancedSearch} />
       </div>
-      <RenderComponent
+      {/* Proprety Type */}
+      <div className="">
+        <TitleComponent
+          className={"home-property-type font-sf-pro-medium"}
+          titleOne={"Availability Based on "}
+          titleTwo={" Proprety Type"}
+        />
+        <div className="flex gap-5 my-20 justify-center flex-wrap">
+          {propertyTypeObjData.map(({ name, paragraph, imageSrc }, index) => (
+            <div key={index} className="property-type">
+              <div className="property-type-image-container">
+                <img loading="lazy" src={imageSrc} alt="" />
+              </div>
+              <div className="property-type-title">
+                <h1>{name}</h1>
+              </div>
+              <div className="property-type-paragraph">
+                <p>{paragraph}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* -------------- */}
+      {/* banner section */}
+      <Banner />
+      {/* banner section */}
+      {/* <div className="w-full p-5 bg-black text-white font-bold text-xl flex justify-center banner-cls sm:text-lg">
+        Explore what is up for&nbsp;
+        <span style={{ color: "#FCA120" }}>sale</span>
+      </div> */}
+      {/* <RenderComponent
         data={props.homeProperty.property}
         propertyCallApi={props.getHomeProperty}
         newList
-      />
-      <div className="home-ctrl">
+      /> */}
+      {/* <div className="home-ctrl">
         <ViewAll goToOtherPage link={`/property-search?limit=10&offset=0`} />
         <MoveToTop />
+      </div> */}
+      <div className="">
+        <div className="flex w-[90%] justify-between m-auto items-center">
+          <TitleComponent
+            titleOne={"Explore city based "}
+            titleTwo={"Properties"}
+            className={"mt-10 mb-8"}
+            classTitleOne={"citiy-based-propertyMain-title-first"}
+            classTitleTwo={"citiy-based-propertyMain-title-last"}
+          />
+          <div className="">
+            <button className="citiy-based-propertyMain-btn">
+              View All Properties{" "}
+            </button>
+          </div>
+        </div>
+        <div className="flex m-auto gap-5 w-[90%] flex-wrap justify-center items-center  ">
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+          <div className="city-based-properties-div">
+            <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/assets/pic/cities.jpeg"
+                alt=""
+              />
+              <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
+                <span>span</span>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className="cites-based-paragraph">
+              <p className="mb-3 w-[88%]">84 New Propreties for Sale</p>
+            </div>
+          </div>
+        </div>
       </div>
+      {/* blog title and more button */}
+
+      <div className="pb-8">
+        <div className="flex w-[90%] justify-between m-auto items-center">
+          <TitleComponent
+            titleOne={"Blogs:  "}
+            titleTwo={"Read more, Learn More"}
+            className={"mt-10 mb-8"}
+            classTitleOne={"citiy-based-propertyMain-title-first"}
+            classTitleTwo={"citiy-based-propertyMain-title-last"}
+          />
+          <div className="">
+            <button className="citiy-based-propertyMain-btn">
+              View All Blogs{" "}
+            </button>
+          </div>
+        </div>
+        <div className="w-full flex gap-4 flex-wrap items-center justify-center">
+          {/* <Blog/> */}
+          {renderCard()}
+        </div>
+      </div>
+
       <Searches />
       <FooterNew />
     </div>

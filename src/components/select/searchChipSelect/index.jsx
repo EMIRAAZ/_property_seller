@@ -126,10 +126,10 @@ const SearchChipSelect = ({
       onClick={onClick}
     >
       <div
-        style={{
-          backgroundColor: bgColor,
-          border: border ? '1px solid #c1cdee' : 'none',
-        }}
+        // style={{
+        //   backgroundColor: bgColor,
+        //   border: border ? '1px solid #c1cdee' : 'none',
+        // }}
         className="select-box"
       >
         {/* <p className="drop-btn">{selectName}</p> */}

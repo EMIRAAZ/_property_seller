@@ -69,31 +69,31 @@ const DivTwo = () => {
       <h1 className="heading">Helpful Links.</h1>
       <ul>
         <li onClick={() => navigate('/about')}>
-          <RightArrow color="#6565d6 " viewBox="12 0 16 8" />
+          <RightArrow color="#fff" viewBox="12 0 16 8" />
           About Us
         </li>
         {/* <li onClick={() => navigate("/aboutfounder")}>
-          <RightArrow color="#6565d6 " viewBox="12 0 16 8" />
+          <RightArrow color="#fff " viewBox="12 0 16 8" />
           about founder
         </li> */}
         {/* <li>
-          <RightArrow color="#6565d6 " viewBox="12 0 16 8" />
+          <RightArrow color="#fff " viewBox="12 0 16 8" />
           Our Team
         </li>
         <li>
-          <RightArrow color="#6565d6 " viewBox="12 0 16 8" />
+          <RightArrow color="#fff " viewBox="12 0 16 8" />
           Our Partners
         </li> */}
         <li onClick={() => navigate('/news')}>
-          <RightArrow color="#6565d6 " viewBox="12 0 16 8" />
+          <RightArrow color="#fff " viewBox="12 0 16 8" />
           News
         </li>
         <li onClick={() => navigate('/career')}>
-          <RightArrow color="#6565d6 " viewBox="12 0 16 8" />
+          <RightArrow color="#fff " viewBox="12 0 16 8" />
           Careers
         </li>
         <li onClick={() => navigate('/dailyblog')}>
-          <RightArrow color="#6565d6 " viewBox="12 0 16 8" />
+          <RightArrow color="#fff " viewBox="12 0 16 8" />
           Blog
         </li>
       </ul>
@@ -105,14 +105,14 @@ const DivThree = () => {
     <div className="div-three">
       <h1 className="heading">Contact info.</h1>
       <p className="sub-heading">
-        <Mail fill="#6565d6" width="10" height="10" customClass="icon" />
+        <Mail fill="#fff" width="10" height="10" customClass="icon" />
         &nbsp;&nbsp;Mail &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{' '}
         <span> hello@propertyseller.ae</span>
       </p>
       <div style={{ display: 'flex' }}>
         <p className="sub-heading">
           <LocationIcon
-            fill="#6565d6"
+            fill="#fff"
             opacity="1"
             width="9"
             height="12"
@@ -129,7 +129,7 @@ const DivThree = () => {
       </div>
 
       <p className="sub-heading">
-        <Phone fill="#6565d6" width="15" height="15" customClass="icon3" />
+        <Phone fill="#fff" width="15" height="15" customClass="icon3" />
         &nbsp; Phone &nbsp; : <span> +971521278701</span>
       </p>
       <div className="soci">
@@ -197,14 +197,14 @@ const DivFour = () => {
         >
           <path
             d="M19.5116 14.9438C19.525 13.9024 19.8024 12.8814 20.3179 11.9757C20.8334 11.07 21.5702 10.309 22.4599 9.76363C21.8947 8.95872 21.1491 8.29631 20.2823 7.82902C19.4155 7.36173 18.4514 7.10242 17.4665 7.07169C15.3656 6.85179 13.3289 8.32532 12.2583 8.32532C11.167 8.32532 9.51864 7.09352 7.74365 7.12994C6.59554 7.16693 5.47662 7.49986 4.4959 8.09629C3.51519 8.69272 2.70612 9.5323 2.14754 10.5332C-0.2721 14.7108 1.53274 20.8503 3.85055 24.2271C5.0102 25.8806 6.36551 27.7276 8.13889 27.6621C9.87425 27.5903 10.5224 26.5586 12.6171 26.5586C14.6924 26.5586 15.3005 27.6621 17.1098 27.6205C18.972 27.5903 20.1452 25.9596 21.2642 24.2904C22.0974 23.1122 22.7385 21.8101 23.1639 20.4322C22.082 19.9759 21.1588 19.2122 20.5093 18.2362C19.8598 17.2602 19.5128 16.1151 19.5116 14.9438Z"
-            fill="white"
+            fill="#000"
           />
           <path
             d="M16.0935 4.85101C17.1088 3.63558 17.609 2.07336 17.4879 0.496094C15.9368 0.658558 14.5039 1.39784 13.4749 2.56663C12.9718 3.13762 12.5864 3.80189 12.3409 4.52147C12.0954 5.24105 11.9945 6.00183 12.044 6.76032C12.8198 6.76829 13.5874 6.60059 14.2889 6.26987C14.9903 5.93915 15.6074 5.45401 16.0935 4.85101Z"
-            fill="white"
+            fill="#000"
           />
         </svg>
-        <span className="relative top-0.5">App Store </span>
+        <span className="relative top-0.5 text-pure-black">App Store </span>
       </BasicButton>
       <BasicButton customClass="btn">
         <svg
@@ -216,7 +216,7 @@ const DivFour = () => {
           height="18"
           // viewBox="0 0 224 258"
           style={{ marginRight: '10px' }}
-          fill="white"
+          fill="#000"
         >
           <g>
             <g>
@@ -263,7 +263,7 @@ const DivFour = () => {
           <g></g>
           <g></g>
         </svg>
-        Play Store
+        <span className='text-pure-black'>Play Store</span>
       </BasicButton>
     </div>
   );

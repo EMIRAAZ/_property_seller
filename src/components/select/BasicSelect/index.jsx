@@ -55,10 +55,10 @@ const BasicSelect = ({
     >
       <div
         className="select-box"
-        style={{
-          backgroundColor: bgColor,
-          border: border ? '1px solid #c1cdee' : 'none',
-        }}
+        // style={{
+        //   backgroundColor: bgColor,
+        //   border: border ? '1px solid #c1cdee' : 'none',
+        // }}
       >
         <p className={`drop-btn ${selectName === name ? '' : 'selected'}`}>
           {selectName}

@@ -55,6 +55,7 @@ const reducer = (state = initialState, action) => {
         },
       };
     case HOME_SEARCH_INPUT_CHANGE_ITEM:
+      console.log(state,'nihad')
       return {
         ...state,
         homeSearch: {
