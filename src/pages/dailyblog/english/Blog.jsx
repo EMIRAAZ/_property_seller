@@ -1,5 +1,5 @@
 import './blog.scss';
-import Header from '../../../components/header';
+import Header from '../../../components/newHeader';
 import { useEffect } from 'react';
 import { MoveToTop } from '../../../components/movetotop';
 import FooterNew from '../../../components/footerNew';
@@ -43,9 +43,9 @@ const Blog = props => {
     <>
       <div className="blog-container">
         <Header />
-        <div className="daily-blog">
-          <div className="heading-bt-container">
-            <h1>Daily Blog</h1>
+        <div className="daily-blog mb-10">
+          <div className="heading-bt-container j">
+            <h1 className='text-[65px]'>Blogs</h1>
             {/* <button>View all</button> */}
           </div>
           <div className="blog-card-main-container">

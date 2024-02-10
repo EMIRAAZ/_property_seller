@@ -9,6 +9,8 @@ import "./index.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store()}>

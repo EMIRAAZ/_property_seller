@@ -22,7 +22,7 @@ function FooterNew(props) {
   }, []);
 
   return (
-    <div className="footer-english-new">
+    <div className="footer-english-new" >
       <div className="div-1">
         <DivOne />
       </div>

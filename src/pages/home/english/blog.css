@@ -28,10 +28,7 @@
    
   }
    
-    .blog-desciption .blog-content {
-      padding: 0px 3.058vh;
-    }
-
+   
 
     .blog-desciption .blog-content .blog-heading {
         font-family: 'Poppins';
@@ -65,7 +62,7 @@
     .blog-desciption .blog-button{
       display: flex;
       margin: auto;
-      width: 90%;font-family: 'Poppins';
+      width: 100%;font-family: 'Poppins';
       font-weight: 600;
       font-size: 1.529vh;
 

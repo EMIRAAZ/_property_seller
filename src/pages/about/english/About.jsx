@@ -1,8 +1,8 @@
-import './about.scss';
-import Footer from '../../../components/footer';
-import Header from '../../../components/header';
-import { MoveToTop } from '../../../components/movetotop';
-import FooterNew from '../../../components/footerNew';
+import "./about.scss";
+import Footer from "../../../components/footer";
+import Header from "../../../components/newHeader";
+import { MoveToTop } from "../../../components/movetotop";
+import FooterNew from "../../../components/footerNew";
 
 const TeamCard = ({ url, name, position }) => {
   return (
@@ -19,15 +19,27 @@ const TeamCard = ({ url, name, position }) => {
 const About = () => {
   return (
     <div className="about-english-container">
-      <Header customClass="about-header-class" />
+      {/* <Header customClass="about-header-class" /> */}
+      <Header />
       <div className="about-properties">
-        <div className="about-container">
-          <h2 className="property-header">About Us.</h2>
+        <div className="about-container my-[150px] sm:my-[30px]">
+          <div className="relative w-full">
+            <div className="w-full h-40 rounded-10px overflow-hidden">
+              <img
+                src="/assets/image/about.jpeg"
+                className="w-full h-full object-cover"
+                alt="about"
+              />
+            </div>
+            <div className="absolute flex top-0 w-full items-center h-full justify-center">
+              <h2 className="property-header text-center" style={{color:"rgba(255, 255, 255, 1)",textShadow : "2px 3px rgb(12 11 11 / 15%)"}}>About Us.</h2>
+            </div>
+          </div>
           <p className="properties-description">
             <p>
               A one stop solution for all your property needs, the ‘Property
-              Seller’ has been disrupting the real estate sector in the UAE
-              in ways never imagined before. A comprehensive real estate portal,
+              Seller’ has been disrupting the real estate sector in the UAE in
+              ways never imagined before. A comprehensive real estate portal,
               the ‘Property Seller’, it has been conceived to provide a
               seamless, effective, intuitive and transparent way to transact
               properties across the country.

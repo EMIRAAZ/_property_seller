@@ -7,6 +7,7 @@
 
   .searches-link-container {
     width: 90%;
+    gap: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -27,6 +28,7 @@
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
+      padding: 1px;
       line-height: normal;
 
       &:hover {

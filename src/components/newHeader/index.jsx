@@ -14,11 +14,13 @@ function Header() {
     >
       <div className="home-header">
         <div className="home-header-logo-div">
+          <Link to={'/'}>
           <img
             className="object-cover w-full h-full"
             src="/assets/pic/logo.png"
             alt=""
           />
+          </Link>
         </div>
         {/* .home-header-links-container{
         display: none;
@@ -38,7 +40,7 @@ function Header() {
               <p></p>
             </li>
             <li>
-              <NavLink>Blog</NavLink>
+              <NavLink to={'/dailyblog'}>Blog</NavLink>
             </li>
             <li className="header-link-side-link">
               <p></p>

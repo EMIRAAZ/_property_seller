@@ -2,7 +2,7 @@ const Close = ({
   className = '',
   width = '15',
   height = '15',
-  fill = '#3E88F1',
+  fill = '#000',
   viewBox = '0 0 15 15',
   onClick = () => {},
 }) => {

@@ -121,20 +121,19 @@
   background-color: #eef7ff;
   .daily-blog {
     width: 80%;
-    margin: auto;
+    margin: 0px auto 50px auto;
     .heading-bt-container {
       display: flex;
       width: 100%;
-      margin: 20px auto;
+      margin: 40px auto;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
       h1 {
         font-family: 'Poppins';
         font-style: normal;
-        font-weight: 700;
-        font-size: 26px;
+        font-weight: 600;
         line-height: 130%;
-        color: #1d2939;
+        color: #000;
       }
       button {
         background-color: white;

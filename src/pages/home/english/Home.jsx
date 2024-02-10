@@ -1,8 +1,9 @@
 import "./home.scss";
 import { useNavigate } from "react-router-dom";
-import HeaderOld from '../../../components/header';
+import HeaderOld from "../../../components/header";
 // import ImageFrame from "../imageframe";
 // import HomeFormCard from "../homeformcard";
+import { FaChevronLeft,FaChevronRight } from "react-icons/fa";
 import HomeFormCard from "./HomeFormCard";
 // import ViewAll from "../viewall";
 import HomeCategory from "../homecategory";
@@ -15,21 +16,26 @@ import FooterNew from "../../../components/footerNew";
 import { Helmet } from "react-helmet";
 import Header from "../../../components/newHeader";
 import HomeBanner from "./HomeBanner";
-import { HomeIcon } from "../../../components/svgicons";
+import { HomeIcon, LeftArrowIcon } from "../../../components/svgicons";
 import SearchIcon from "../../../components/svg/search";
 import TitleComponent from "../../../components/TitleComponent";
 import Banner from "../banner/Banner";
 import Blog from "./Blog";
+import RightArrow from "../../../components/svg/rightarrow";
 // import "../../dailyblog/english/blog.scss";
 // import HomeBanner from './HomeBanner';
 // import './Blog.scss';
+// Import Swiper React components
+
+// Import Swiper styles
 
 const Home = (props) => {
   const [bannerFormUi, setBannerForUi] = useState(false);
+  const [ImageIndex, setImageIndex] = useState(0);
   // const navigate = useNavigate();
   useEffect(() => {
     props.clearHomeProperty();
-
+    console.log('first')
     props.getBlogWeb();
   }, []);
 
@@ -89,6 +95,20 @@ const Home = (props) => {
   const renderCard = () =>
     props.blogs.map((item, i) => <Blog key={i} {...item} />);
 
+  const handleNextBtn =()=>{
+    setImageIndex((index)=>{
+      if(index === image_obj.length - 1 ) return 0
+      return index + 1
+    })
+  }
+
+  const handlePreviousBtn = ()=>{
+    setImageIndex((index)=>{
+      if(index === 0 ) return image_obj.length - 1
+      return index - 1
+    })
+  }
+
   return (
     <div className="home-english">
       <Helmet>
@@ -144,7 +164,7 @@ const Home = (props) => {
         />
       </Helmet>
       {/* <Header customClass="home-header-class" /> */}
-      <HeaderOld customClass="home-header-class" />
+      {/* <HeaderOld customClass="home-header-class" /> */}
       <Header />
       <HomeBanner
         stateForButton={bannerFormUi}
@@ -230,21 +250,37 @@ const Home = (props) => {
         <MoveToTop />
       </div> */}
       <div className="">
-        <div className="flex w-[90%] justify-between m-auto items-center">
+        <div className="flex-col sm:flex-row flex w-[90%] justify-between m-auto items-start sm:items-center">
           <TitleComponent
             titleOne={"Explore city based "}
             titleTwo={"Properties"}
-            className={"mt-10 mb-8"}
-            classTitleOne={"citiy-based-propertyMain-title-first"}
-            classTitleTwo={"citiy-based-propertyMain-title-last"}
+            className={"mt-10 mb-8   "}
+            classTitleOne={
+              "citiy-based-propertyMain-title-first text-[20px] sm:text-[50px]"
+            }
+            classTitleTwo={
+              "citiy-based-propertyMain-title-last text-[40px] sm:text-[70px]"
+            }
           />
-          <div className="">
-            <button className="citiy-based-propertyMain-btn">
+
+          <div className="m-auto sm:m-0 block sm:hidden relative">
+            <div className=" h-[200px] w-full rounded-10px overflow-hidden">
+                <img className="w-full h-full object-cover" src={image_obj[ImageIndex].imageSrc} alt="" />
+            </div>
+            <div className="flex w-full justify-between px-6 h-full items-center absolute top-0">
+              <FaChevronLeft size={'25px'} onClick={handlePreviousBtn}/>
+              <FaChevronRight size={'25px'} onClick={handleNextBtn} />
+            </div>
+          </div>
+
+          <div className="m-auto  sm:m-0 mt-5">
+            <button className=" citiy-based-propertyMain-btn">
               View All Properties{" "}
             </button>
           </div>
         </div>
-        <div className="flex m-auto gap-5 w-[90%] flex-wrap justify-center items-center  ">
+
+        <div className="hidden sm:flex  m-auto gap-5 w-[90%] flex-wrap justify-center items-center  ">
           <div className="city-based-properties-div">
             <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
               <img
@@ -415,10 +451,10 @@ const Home = (props) => {
             titleOne={"Blogs:  "}
             titleTwo={"Read more, Learn More"}
             className={"mt-10 mb-8"}
-            classTitleOne={"citiy-based-propertyMain-title-first"}
-            classTitleTwo={"citiy-based-propertyMain-title-last"}
+            classTitleOne={"citiy-based-propertyMain-title-first text-[20px] sm:text-[50px]"}
+            classTitleTwo={"citiy-based-propertyMain-title-last text-[34px] sm:text-[70px]"}
           />
-          <div className="">
+          <div className="hidden sm:block">
             <button className="citiy-based-propertyMain-btn">
               View All Blogs{" "}
             </button>
@@ -426,11 +462,22 @@ const Home = (props) => {
         </div>
         <div className="w-full flex gap-4 flex-wrap items-center justify-center">
           {/* <Blog/> */}
+          <div className="mx-5 flex flex-col sm:flex-row gap-5">
           {renderCard()}
+          </div>
+
+          <div className="block sm:hidden">
+            <button className="citiy-based-propertyMain-btn">
+              View All Blogs{" "}
+            </button>
+          </div>
         </div>
       </div>
 
+      <div className="border-t-2 border-solid text-[#d9dbda]">
       <Searches />
+
+      </div>
       <FooterNew />
     </div>
   );
