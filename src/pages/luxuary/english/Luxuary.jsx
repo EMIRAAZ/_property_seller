@@ -16,6 +16,7 @@ import Bath from "../../../components/svg/bath";
 import PropertyListingCard from "../../../components/propertyListingCard/PropertyListingCard";
 import AdsBanner from "../../../components/adsBanner/AdsBanner";
 import axios from "../../../utils/axios";
+import NewFooter from "../../../components/newFooter/NewFooter";
 
 
 
@@ -484,7 +485,8 @@ const Luxuary = (props) => {
 
 
       <MoveToTop />
-      <FooterNew />
+      {/* <FooterNew /> */}
+      <NewFooter/>
     </div>
   );
 };

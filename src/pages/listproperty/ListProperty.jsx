@@ -9,6 +9,7 @@ import FooterNew from '../../components/footerNew';
 import SearchHeader from '../../components/searchHeader/SearchHeader';
 import PropertyListingCard from '../../components/propertyListingCard/PropertyListingCard';
 import AdsBanner from '../../components/adsBanner/AdsBanner';
+import NewFooter from '../../components/newFooter/NewFooter';
 
 const ListProperty = props => {
   let location = useLocation();
@@ -87,7 +88,8 @@ const ListProperty = props => {
         isPagination
       /> */}
       <MoveToTop />
-      <FooterNew />
+      {/* <FooterNew /> */}
+      <NewFooter/>
     </div>
   );
 };

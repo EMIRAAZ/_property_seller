@@ -150,7 +150,7 @@ export default function SearchHeader() {
             <div className="w-3 flex items-center">
              <SelectBottomIcon/>
             </div>
-            { !handleAllFormFields.propertType &&
+            { handleAllFormFields.propertType &&
                <div className="absolute top-14 left-0 w-full h-[165px] tracking-wide text-[15px] bg-white pt-2">
                  <p onClick={()=> setValueOfSearchBar({...valueOfSearchBar,property:'Apartment'}) }  className=" px-4 text-[#000000a6] hover:bg-slate-200 py-2">Apartment</p>
                  <p onClick={()=> setValueOfSearchBar({...valueOfSearchBar,property:'Villa'}) }  className="px-4 text-[#000000a6] hover:bg-slate-200 py-2">Villa</p>
@@ -165,7 +165,7 @@ export default function SearchHeader() {
             <div className="w-3 flex items-center">
               <SelectBottomIcon/> 
             </div>
-            { !handleAllFormFields.bed &&
+            { handleAllFormFields.bed &&
                <div className="absolute top-14 overflow-y-scroll  left-0 w-full h-[200px] tracking-wide text-[15px] bg-white pt-2">
                  <p onClick={()=> setValueOfSearchBar({...valueOfSearchBar,bed:'Studio'}) } className="px-4 text-[#000000a6] hover:bg-slate-200 py-2">Studio</p>
                  <p onClick={()=> setValueOfSearchBar({...valueOfSearchBar,bed:'1'}) } className="px-4 text-[#000000a6] hover:bg-slate-200 py-2">1</p>
@@ -185,7 +185,7 @@ export default function SearchHeader() {
             <div className="w-3">
             <DownArrow/>
             </div>
-            { !handleAllFormFields.priceFrom &&
+            { handleAllFormFields.priceFrom &&
                <div className="absolute top-14  left-0 w-full h-[200px] overflow-y-scroll bg-white pt-2">
                 { price_from_list.map((item)=>{   
                  return <p onClick={()=> {
@@ -202,7 +202,7 @@ export default function SearchHeader() {
             <div className="w-3">
             <DownArrow/>
             </div>
-            { !handleAllFormFields.priceTo &&
+            { handleAllFormFields.priceTo &&
                <div className="absolute top-14  left-0 w-full h-[200px] overflow-y-scroll bg-white pt-2">
                 { price_to_list.filter((item)=> priceFromFilter.value < item.value ).map((item)=>{   
                  return <p onClick={()=> setValueOfSearchBar({...valueOfSearchBar,priceTo:item.name}) } className="px-4 text-[#000000a6] hover:bg-slate-200 py-2">{item.name}</p>

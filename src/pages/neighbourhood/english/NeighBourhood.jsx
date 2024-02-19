@@ -8,6 +8,7 @@ import FooterNew from '../../../components/footerNew';
 import SearchHeader from '../../../components/searchHeader/SearchHeader';
 import PropertyListingCard from '../../../components/propertyListingCard/PropertyListingCard';
 import AdsBanner from '../../../components/adsBanner/AdsBanner';
+import NewFooter from '../../../components/newFooter/NewFooter';
 
 const NeighborHood = props => {
   useEffect(() => {
@@ -36,7 +37,8 @@ const NeighborHood = props => {
 
 
       <MoveToTop />
-      <FooterNew />
+      {/* <FooterNew /> */}
+      <NewFooter/>
     </div>
   );
 };

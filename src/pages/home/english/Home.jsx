@@ -1,7 +1,7 @@
 import "./home.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import HomeFormCard from "../homeformcard";
-import { FaChevronLeft,FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import HomeFormCard from "./HomeFormCard";
 // import ViewAll from "../viewall";
 import HomeCategory from "../homecategory";
@@ -19,6 +19,7 @@ import SearchIcon from "../../../components/svg/search";
 import TitleComponent from "../../../components/TitleComponent";
 import Banner from "../banner/Banner";
 import Blog from "./Blog";
+import NewFooter from "../../../components/newFooter/NewFooter";
 
 const Home = (props) => {
   const [bannerFormUi, setBannerForUi] = useState(false);
@@ -33,8 +34,7 @@ const Home = (props) => {
 
   // props.homeProperty()
 
-
-  console.log(props,'props')
+  console.log(props, "props");
 
   const [advancedSearch, setAdvancedSearch] = useState(false);
 
@@ -91,19 +91,19 @@ const Home = (props) => {
   const renderCard = () =>
     props.blogs.map((item, i) => <Blog key={i} {...item} />);
 
-  const handleNextBtn =()=>{
-    setImageIndex((index)=>{
-      if(index === image_obj.length - 1 ) return 0
-      return index + 1
-    })
-  }
+  const handleNextBtn = () => {
+    setImageIndex((index) => {
+      if (index === image_obj.length - 1) return 0;
+      return index + 1;
+    });
+  };
 
-  const handlePreviousBtn = ()=>{
-    setImageIndex((index)=>{
-      if(index === 0 ) return image_obj.length - 1
-      return index - 1
-    })
-  }
+  const handlePreviousBtn = () => {
+    setImageIndex((index) => {
+      if (index === 0) return image_obj.length - 1;
+      return index - 1;
+    });
+  };
 
   return (
     <div className="home-english">
@@ -160,8 +160,6 @@ const Home = (props) => {
         />
       </Helmet>
 
-
-
       <Header />
       <HomeBanner
         stateForButton={bannerFormUi}
@@ -173,24 +171,29 @@ const Home = (props) => {
               <p className="font-sf-pro-regular">New Properties, Everyday...</p>
             </div>
             <div className="home-banner-button-container">
-              <div
-                className="home-banner-buttons-div bg-[#000] text-pure-white cursor-pointer"
-                onClick={() => handleClickSearch(true)}
-              >
-                <SearchIcon fill="#fff" />
-                <button className="text-[#fff]">Property Search</button>
-              </div>
-              <div className="home-banner-buttons-div bg-pure-white text-black bg-[#fff]">
-                <HomeIcon fill={"#"} />
-                <button>All Properties</button>
-              </div>
+              <Link to={'/property-search'}>
+                <div
+                  className="home-banner-buttons-div bg-[#000] text-pure-white cursor-pointer"
+                  onClick={() => handleClickSearch(true)}
+                >
+                  <SearchIcon fill="#fff" />
+                  <button className="text-[#fff]">Property Search</button>
+                </div>
+              </Link>
+
+              <Link to={"/all-properties"}>
+                <div className=" home-banner-buttons-div bg-pure-white text-black bg-[#fff]">
+                  <HomeIcon fill={"#000"} />
+                  <button>All Properties</button>
+                </div>
+              </Link>
             </div>
           </>
         )}
         {bannerFormUi && (
           <HomeFormCard
-          searchCount={props.searchCount}
-          onHomeSearchInputChange={props.onHomeSearchInputChange}
+            searchCount={props.searchCount}
+            onHomeSearchInputChange={props.onHomeSearchInputChange}
           />
         )}
         {/* {JSON.stringify(props.searchCount)} */}
@@ -200,7 +203,6 @@ const Home = (props) => {
         } */}
         {/* {console.log(props.onHomeSearchInputChange,'props.onHomeSearchInputChange')} */}
       </HomeBanner>
-
 
       <div className="mt-20 mb-20">
         <HomeCategory advancedSearch={advancedSearch} />
@@ -262,11 +264,15 @@ const Home = (props) => {
 
           <div className="m-auto sm:m-0 block sm:hidden relative">
             <div className=" h-[200px] w-full rounded-10px overflow-hidden">
-                <img className="w-full h-full object-cover" src={image_obj[ImageIndex].imageSrc} alt="" />
+              <img
+                className="w-full h-full object-cover"
+                src={image_obj[ImageIndex].imageSrc}
+                alt=""
+              />
             </div>
             <div className="flex w-full justify-between px-6 h-full items-center absolute top-0">
-              <FaChevronLeft size={'25px'} onClick={handlePreviousBtn}/>
-              <FaChevronRight size={'25px'} onClick={handleNextBtn} />
+              <FaChevronLeft size={"25px"} onClick={handlePreviousBtn} />
+              <FaChevronRight size={"25px"} onClick={handleNextBtn} />
             </div>
           </div>
 
@@ -350,7 +356,7 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-              <span className="w-[80px]">Dubai</span>
+                <span className="w-[80px]">Dubai</span>
                 <h2>Al Reem Island</h2>
               </div>
             </div>
@@ -382,7 +388,7 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-              <span className="w-[80px]">Dubai</span>
+                <span className="w-[80px]">Dubai</span>
                 <h2>Downtown</h2>
               </div>
             </div>
@@ -398,7 +404,7 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-              <span className="w-[80px]">Dubai</span>
+                <span className="w-[80px]">Dubai</span>
                 <h2>The Palm Jumeriah</h2>
               </div>
             </div>
@@ -414,7 +420,7 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-              <span className="w-[80px]">Dubai</span>
+                <span className="w-[80px]">Dubai</span>
                 <h2>Al Reem Island</h2>
               </div>
             </div>
@@ -430,7 +436,7 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-              <span className="w-[80px]">Dubai</span>
+                <span className="w-[80px]">Dubai</span>
                 <h2>Al Reem Island</h2>
               </div>
             </div>
@@ -448,8 +454,12 @@ const Home = (props) => {
             titleOne={"Blogs:  "}
             titleTwo={"Read more, Learn More"}
             className={"mt-10 mb-8"}
-            classTitleOne={"citiy-based-propertyMain-title-first text-[20px] sm:text-[50px]"}
-            classTitleTwo={"citiy-based-propertyMain-title-last text-[34px] sm:text-[70px]"}
+            classTitleOne={
+              "citiy-based-propertyMain-title-first text-[20px] sm:text-[50px]"
+            }
+            classTitleTwo={
+              "citiy-based-propertyMain-title-last text-[34px] sm:text-[70px]"
+            }
           />
           <div className="hidden sm:block">
             <button className="citiy-based-propertyMain-btn">
@@ -460,7 +470,7 @@ const Home = (props) => {
         <div className="w-full flex gap-4 flex-wrap items-center justify-center">
           {/* <Blog/> */}
           <div className="mx-5 flex flex-col sm:flex-row gap-5">
-          {renderCard()}
+            {renderCard()}
           </div>
 
           <div className="block sm:hidden">
@@ -472,10 +482,10 @@ const Home = (props) => {
       </div>
 
       <div className="border-t-2 border-solid text-[#d9dbda]">
-      <Searches />
-
+        <Searches />
       </div>
-      <FooterNew />
+      {/* <FooterNew /> */}
+      <NewFooter />
     </div>
   );
 };

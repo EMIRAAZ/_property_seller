@@ -51,6 +51,7 @@ import Nft from './pages/nft/english';
 import OffplanViewNew from './pages/offplanviewnew/english';
 import City from './admin/city/english';
 import India from './pages/india';
+import AllProperties from './pages/allProperties/AllProperties';
 function Router() {
   const makePrivate = (component, role = '') => (
     <PrivateRoute role={role}>{component}</PrivateRoute>
@@ -176,6 +177,7 @@ function Router() {
           </Route>
 
           <Route path="buy" element={<Buy />} />
+          <Route path="all-properties" element={<AllProperties />} />
           <Route path="property-search" element={<PropertySearchView />} />
           <Route path="property/:id" element={<PropertyView />} />
           <Route path="news" element={<Topstory />} />

@@ -9,6 +9,7 @@ import BasicButton from '../../../components/button/BasicButton';
 import SearchHeader from '../../../components/searchHeader/SearchHeader';
 import PropertyListingCard from '../../../components/propertyListingCard/PropertyListingCard';
 import AdsBanner from '../../../components/adsBanner/AdsBanner';
+import NewFooter from '../../../components/newFooter/NewFooter';
 
 const Offplan = props => {
   let navigate = useNavigate();
@@ -55,7 +56,8 @@ const Offplan = props => {
   <AdsBanner/>
 </div>
 
-      <FooterNew />
+      {/* <FooterNew /> */}
+      <NewFooter/>
     </div>
   );
 };
