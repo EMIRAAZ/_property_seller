@@ -5,7 +5,7 @@ function Banner() {
   return (
     <>
       <div className="desktop-banner flex flex-wrap overflow-hidden rounded-20px h-[260px] m-auto w-[90%]">
-        <div className="flex-1 bg-pure-black flex items-center justify-center">
+        <div className="flex-1 bg- flex items-center justify-center">
           <div className="w-[85%] flex flex-col gap-3">
             <h1 className="text-pure-white text-30px">
               Find Your Dream Home Today
@@ -16,7 +16,7 @@ function Banner() {
             </p>
             <button
               style={{ width: "fit-content" }}
-              className="rounded-10px bg-pure-white flex text-pure-black text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
+              className="rounded-10px bg-pure-white flex text-[#000] text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
             >
               View all properties
             </button>
@@ -83,7 +83,7 @@ function Banner() {
           </p>
           <button
             style={{ width: "fit-content" }}
-            className="rounded-10px bg-pure-white flex text-pure-black text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
+            className="rounded-10px bg-pure-white flex text-[#000] text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
           >
             View all properties
           </button>

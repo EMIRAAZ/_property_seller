@@ -43,7 +43,7 @@ const Blog = props => {
     <>
       <div className="blog-container">
         <Header />
-        <div className="daily-blog mb-10">
+        <div className="daily-blog">
           <div className="heading-bt-container j">
             <h1 className='text-[65px]'>Blogs</h1>
             {/* <button>View all</button> */}

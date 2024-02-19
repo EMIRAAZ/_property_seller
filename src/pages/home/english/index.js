@@ -6,6 +6,7 @@ import {
   getHomeLocationSearch,
   clearHomeProperty,
   getBlogWeb,
+  setHomePageSearchResultsCount,
 } from '../../../redux/actions';
 
 const mapStateToProps = state => {
@@ -13,6 +14,7 @@ const mapStateToProps = state => {
     homeProperty: state.homeReducer.homeProperty,
     homeSearch: state.homeReducer.homeSearch,
     blogs: state.blogwebReducer.blogs,
+    searchCount:state.homeReducer.searchCount
   };
 };
 
@@ -20,11 +22,12 @@ const mapDispatchToProps = dispatch => {
   return {
     getHomeProperty: (params, search) =>
       dispatch(getHomeProperty(params, search)),
-    onHomeSearchInputChange: payload =>
-    console.log(payload,'paa'),
+    // onHomeSearchInputChange: payload =>
+    // console.log(payload,'paa'),
+    onHomeSearchInputChange:(payload)=> dispatch(setHomePageSearchResultsCount(payload)),
+    
     getBlogWeb: (params) => dispatch(getBlogWeb(params)),
-      // dispatch(onHomeSearchInputChange(payload)),
-    getHomeLocationSearch: payload => dispatch(getHomeLocationSearch(payload)),
+    getHomeLocationSearch: (payload) => dispatch(getHomeLocationSearch(payload)),
     clearHomeProperty: () => dispatch(clearHomeProperty()),
   };
 };

@@ -1,11 +1,14 @@
 import './listproperty.scss';
 import { useLocation } from 'react-router-dom';
-import Header from '../../components/header';
+import Header from '../../components/newHeader';
 import QueryCard from '../../components/querycard';
 import RenderComponent from '../../components/renderComponent';
 import ListHeading from '../../components/ListHeading';
 import { MoveToTop } from '../../components/movetotop';
 import FooterNew from '../../components/footerNew';
+import SearchHeader from '../../components/searchHeader/SearchHeader';
+import PropertyListingCard from '../../components/propertyListingCard/PropertyListingCard';
+import AdsBanner from '../../components/adsBanner/AdsBanner';
 
 const ListProperty = props => {
   let location = useLocation();
@@ -53,25 +56,36 @@ const ListProperty = props => {
 
   return (
     <div className="list-property-api">
-      <Header customClass="property-list-header-class" />
-      <QueryCard
+      {/* <Header customClass="property-list-header-class" /> */}
+      <Header />
+
+      <SearchHeader />
+
+      <div className="flex justify-center gap-4 mt-11 mb-4">
+        
+        <PropertyListingCard/>
+        <AdsBanner/>
+      </div>
+
+
+      {/* <QueryCard
         onInputChange={props.onChangeListPropParams}
         onSearchLocation={props.getListpropLocationSearch}
         cardInput={props.listSearch}
         onSearch={params => getPropertyFn(params)}
-      />
-      <ListHeading
+      /> */}
+      {/* <ListHeading
         className="list-header"
         main={getPropertyName()}
         count={getPropertyCount()}
-      />
-      <RenderComponent
+      /> */}
+      {/* <RenderComponent
         data={getPropertyData()}
         propertyCallApi={getPropertyFn}
         count={getPropertyCount()}
         iQuery={`limit=${6}&offset=${0}`}
         isPagination
-      />
+      /> */}
       <MoveToTop />
       <FooterNew />
     </div>

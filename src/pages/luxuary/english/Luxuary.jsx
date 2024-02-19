@@ -1,13 +1,34 @@
 import "./luxuary.scss";
-import Header from "../../../components/header";
+import Header from "../../../components/newHeader";
 import Property from "../../../components/property";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import ViewAll from "../viewall";
 import { MoveToTop } from "../../../components/movetotop";
 import FooterNew from "../../../components/footerNew";
 import { Button } from "@mui/material";
 import { Helmet } from "react-helmet";
+import SearchHeader from "../../../components/searchHeader/SearchHeader";
+import { Bedroom, LocationIcon } from "../../../components/svgicons";
+import Whatsapp from "../../../components/svg/whatsapp";
+import Bed from "../../../components/svg/bed";
+import Phone from "../../../components/svg/phone";
+import Bath from "../../../components/svg/bath";
+import PropertyListingCard from "../../../components/propertyListingCard/PropertyListingCard";
+import AdsBanner from "../../../components/adsBanner/AdsBanner";
+import axios from "../../../utils/axios";
+
+
+
+
+// svg imports
+// import DarkLocation from "/assets/image/dark-location.svg"
+// import DarkBed from "assets/image/dark-bed.svg"
+// import DarkBath from "assets/image/dark-bath.svg"
+// import NormalSqure from "assets/image/squre-normal.svg"
+// import DarkPhone from "assets/image/dark-phone.svg"
+// import DarkWhatsaApp from "assets/image/dark-whatsapp.svg"
+// import DarkBed from "../../"
+
 
 const Luxuary = (props) => {
   let location = useLocation();
@@ -17,22 +38,38 @@ const Luxuary = (props) => {
   const [penthouse, setPenthouse] = useState(0);
   const [townhouse, setTownhouse] = useState(0);
 
-  useEffect(() => {
-    if (getPath() === "luxury-property") {
-      props.getLuxuryVillaWeb("&limit=3");
-      props.getLuxuryAppartmentWeb("&limit=3");
-      props.getLuxuryPenthouseWeb("&limit=3");
-      props.getLuxuryTownhouseWeb("&limit=3");
-    } else if (getPath() === "Villa") {
-      props.getLuxuryVillaWeb("&limit=3");
-    } else if (getPath() === "Apartment") {
-      props.getLuxuryAppartmentWeb("&limit=3");
-    } else if (getPath() === "Townhouse") {
-      props.getLuxuryTownhouseWeb("&limit=3");
-    } else if (getPath() === "Penthouse") {
-      props.getLuxuryPenthouseWeb("&limit=3");
+  // useEffect(() => {
+  //   if (getPath() === "luxury-property") {
+  //     props.getLuxuryVillaWeb("&limit=3");
+  //     props.getLuxuryAppartmentWeb("&limit=3");
+  //     props.getLuxuryPenthouseWeb("&limit=3");
+  //     props.getLuxuryTownhouseWeb("&limit=3");
+  //   } else if (getPath() === "Villa") {
+  //     props.getLuxuryVillaWeb("&limit=3");
+  //   } else if (getPath() === "Apartment") {
+  //     props.getLuxuryAppartmentWeb("&limit=3");
+  //   } else if (getPath() === "Townhouse") {
+  //     props.getLuxuryTownhouseWeb("&limit=3");
+  //   } else if (getPath() === "Penthouse") {
+  //     props.getLuxuryPenthouseWeb("&limit=3");
+  //   }
+  // }, [getPath()]);
+
+  useEffect(()=>{
+    fetchProperty()
+
+  })
+
+  const fetchProperty  = async ()=>{
+    try {
+      
+      const response = await axios.get('/api/property/getall')
+      console.log(response)
+    } catch (error) {
+      console.log(error.message)
     }
-  }, [getPath()]);
+      
+  }
 
   const renderstory1 = () =>
     props.villa.data.map((item, i) => <Property key={i} {...item} />);
@@ -369,8 +406,21 @@ const Luxuary = (props) => {
   return (
     <div className="luxuary-container">
       {metaWithPath()}
-      <Header customClass="luxury-header-class" />
+      <Header />
+
+      <SearchHeader />
+
+
+      <div className="flex justify-center gap-4 mt-11 mb-4">
+        
+        <PropertyListingCard/>
+        <AdsBanner/>
+      </div>
+
+
+
       {getData()}
+
       {/* {props.villa.data.length ? (
         <div className="lux-main">
           <div className="viewall">
@@ -431,6 +481,8 @@ const Luxuary = (props) => {
       ) : (
         <></>
       )} */}
+
+
       <MoveToTop />
       <FooterNew />
     </div>

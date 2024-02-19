@@ -20,4 +20,5 @@ export const initialState = {
       location: [],
     },
   },
+  searchCount:0
 };

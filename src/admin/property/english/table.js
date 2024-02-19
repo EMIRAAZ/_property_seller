@@ -1,3 +1,5 @@
+import { imageURL } from "../../../utils/axios";
+
 export const tableHeader = [
   {
     field: 'id',
@@ -14,7 +16,10 @@ export const tableHeader = [
     renderCell: params => {
       return (
         <>
-          <img src={params.row.images[0]} alt="" className="image" />
+
+          {/* <img src={} alt="" className="image" /> */}
+          <img src={`${imageURL}/${params.row.images[0]}`} alt="" className="image" />
+
           <p>{params.row.title}</p>
         </>
       );

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+import { imageURL } from '../../utils/axios';
 export default function ImageUpload(props) {
   const [imgArr, setImgArr] = useState([]);
 
@@ -42,7 +43,7 @@ export default function ImageUpload(props) {
         </svg>
         <img
           className="rounded"
-          src={item}
+          src={`${imageURL}/${item}`}
           max-width={100}
           width={100}
           height={100}

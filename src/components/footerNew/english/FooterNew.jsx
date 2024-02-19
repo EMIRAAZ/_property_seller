@@ -204,7 +204,7 @@ const DivFour = () => {
             fill="#000"
           />
         </svg>
-        <span className="relative top-0.5 text-pure-black">App Store </span>
+        <span className="relative top-0.5 text-[#000]">App Store </span>
       </BasicButton>
       <BasicButton customClass="btn">
         <svg
@@ -263,7 +263,7 @@ const DivFour = () => {
           <g></g>
           <g></g>
         </svg>
-        <span className='text-pure-black'>Play Store</span>
+        <span className='text-[#000]'>Play Store</span>
       </BasicButton>
     </div>
   );

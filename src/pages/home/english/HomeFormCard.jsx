@@ -1,5 +1,5 @@
 import "./HomeFormCard.css";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Bedroom,
   Building,
@@ -9,15 +9,19 @@ import {
 } from "../../../components/svgicons";
 import { useEffect } from "react";
 
-export default function HomeFormCard() {
+export default function HomeFormCard({onHomeSearchInputChange,searchCount}) {
 
 
-  const [proertyActive,setPropertyTypeActive] = useState(null)
+  const [propertyActive,setPropertyTypeActive] = useState('')
   const [bedActive,setBedActive] = useState(null)
-  const [priceFrom,setPriceFrom] = useState(null);
   const [priceTo,setPriceTo] = useState(null);
+  const [priceFrom,setPriceFrom] = useState(null);
   const [priceFromActive,setPriceFromActive] = useState(false);
   const [priceToActive,setPriceToActive] = useState(false);
+  const [searchQuery,setSearchQuery] = useState('');
+
+
+  console.log(bedActive,propertyActive,priceFrom,priceTo,'-------- ')
 
   // price from list obj
   const price_from_list = [
@@ -86,7 +90,19 @@ export default function HomeFormCard() {
     { name: "5,000,000", value: 5000000 },
   ]
 
+  const searchRef = useRef(null)
+
+  const [firstTimeFalse,setFirstTimeFalse] = useState(false)
+
+  const handleChange = (e)=>{
+    console.log(e.target.value,'---')
+    setSearchQuery(e.target.value)
+  }
+
   useEffect(()=>{
+    
+    
+    
     if(priceFrom?.value >= priceTo?.value){
       setPriceTo(null)
     }
@@ -97,11 +113,35 @@ export default function HomeFormCard() {
   },[priceFromActive])
 
 
+  useEffect(()=>{
+
+    if(firstTimeFalse){
+      setTimeout(() => {
+        
+        if(searchRef.current.value === searchQuery){
+          onHomeSearchInputChange({
+            searchQuery:searchQuery,
+            priceFrom:priceFrom?.value,
+            priceTo:priceTo?.value,
+            propertyActive:propertyActive,
+            bedActive:bedActive
+          })
+        }
+      }, 500);
+      
+    }
+    setFirstTimeFalse(true)
+
+    
+
+  },[bedActive,propertyActive,searchQuery,priceFrom,priceTo])
+
+
   return (
     <div className="form-home-overlap-container">
       <div className="form-home-location-div">
         <LocationIcon />
-        <input type="text" placeholder="Search City, Reference id.." />
+        <input type="text" ref={searchRef} name="searchQuery" onChange={handleChange} placeholder="Search City, Reference id.." />
       </div>
       <div className="form-home-div">
         <div className="form-home-div icons-div">
@@ -109,16 +149,16 @@ export default function HomeFormCard() {
           <p className="form-home-label-name">Proprety Type</p>
         </div>
         <div className="form-home-propertyType-container">
-          <div onClick={()=>setPropertyTypeActive('apartment')} className={`${ proertyActive === 'apartment' && 'active'} form-home-propertyType-type`}>
+          <div onClick={()=>setPropertyTypeActive('apartment')} className={`${ propertyActive === 'apartment' && 'active'} form-home-propertyType-type`}>
             <p>Apartment</p>
           </div>
-          <div onClick={()=>setPropertyTypeActive('villa')} className={`${ proertyActive === 'villa' && 'active'} form-home-propertyType-type`}>
+          <div onClick={()=>setPropertyTypeActive('villa')} className={`${ propertyActive === 'villa' && 'active'} form-home-propertyType-type`}>
             <p>Villa</p>
           </div>
-          <div onClick={()=>setPropertyTypeActive('townhouse')} className={`${ proertyActive === 'townhouse' && 'active'} form-home-propertyType-type`}>
+          <div onClick={()=>setPropertyTypeActive('townhouse')} className={`${ propertyActive === 'townhouse' && 'active'} form-home-propertyType-type`}>
             <p>Townhouse</p>
           </div>
-          <div onClick={()=>setPropertyTypeActive('penthouse')} className={`${ proertyActive === 'penthouse' && 'active'} form-home-propertyType-type`}>
+          <div onClick={()=>setPropertyTypeActive('penthouse')} className={`${ propertyActive === 'penthouse' && 'active'} form-home-propertyType-type`}>
             <p>Penthouse</p>
           </div>
         </div>
@@ -205,7 +245,11 @@ export default function HomeFormCard() {
             
           </div>
           <div className="filter-btn-div">
-            <button>Show {7} results</button>
+            <button>Show {searchCount.data ? searchCount.data : 0} results</button>
+            <p className="" style={{color:"red"}}>
+            {/* {searchCount ? searchCount : 0} */}
+            {/* {console.log(searchCount,'searchCount')} */}
+            </p>
           </div>
         </div>
       </div>

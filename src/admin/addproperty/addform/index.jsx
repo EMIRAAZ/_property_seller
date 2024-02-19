@@ -57,6 +57,9 @@ const AddForm = ({
   let navigate = useNavigate();
   let location = useLocation();
 
+
+
+  console.log(propertyValue,'propertyValue')
   // const inputRef = useRef();
 
   // const [center, setCenter] = useState({ lat: 24.4539, lng: 54.3773 });

@@ -34,7 +34,7 @@ function HomeBanner(props) {
                   <Close />
                 </div>
                 <div className="">
-                  <p className=" bg-pure-black w-24 h-1 rounded-20px"></p>
+                  <p className=" bg-[#000] w-24 h-1 rounded-20px"></p>
                 </div>
               </div>
               <div

@@ -1,6 +1,6 @@
 import './propertysearchview.scss';
 import { useLocation } from 'react-router-dom';
-import Header from '../../components/header';
+import Header from '../../components/newHeader';
 import ListHeading from '../../components/ListHeading';
 import QueryCard from '../../components/querycard';
 import RenderComponent from '../../components/renderComponent';

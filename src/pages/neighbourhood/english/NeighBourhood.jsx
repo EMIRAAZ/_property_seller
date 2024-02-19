@@ -1,10 +1,13 @@
 import './neighbourhood.scss';
 import { useEffect } from 'react';
-import Header from '../../../components/header';
+import Header from '../../../components/newHeader';
 import BasicButton from '../../../components/button/BasicButton';
 import { useNavigate } from 'react-router-dom';
 import { MoveToTop } from '../../../components/movetotop';
 import FooterNew from '../../../components/footerNew';
+import SearchHeader from '../../../components/searchHeader/SearchHeader';
+import PropertyListingCard from '../../../components/propertyListingCard/PropertyListingCard';
+import AdsBanner from '../../../components/adsBanner/AdsBanner';
 
 const NeighborHood = props => {
   useEffect(() => {
@@ -12,14 +15,26 @@ const NeighborHood = props => {
   }, []);
   return (
     <div className="neighbourhood">
-      <Header customClass="neigh-header-class" />
-      <div className="main-container">
+      {/* <Header customClass="neigh-header-class" /> */}
+      {/* <div className="main-container">
         <h1 className="heading">Famous Neighbourhood</h1>
         <div className="card-div">
           {props.neighbor.rows &&
             props.neighbor.rows.map(item => <Card key={item.id} {...item} />)}
         </div>
+      </div> */}
+      <Header/>
+
+      <SearchHeader/>
+
+
+      <div className="flex justify-center gap-4 mt-11 mb-4">
+        
+        <PropertyListingCard/>
+        <AdsBanner/>
       </div>
+
+
       <MoveToTop />
       <FooterNew />
     </div>

@@ -7,7 +7,7 @@ const CAT = [
     name: "Luxury Properties",
     page: "/luxury-property",
     image: "/assets/pic/luxury-property.png",
-    colorClassName:'bg-pattens-blue'
+    colorClassName:'bg-[#E3F1FF]'
 
   },
   {
@@ -15,21 +15,21 @@ const CAT = [
     name: "Featured Properties",
     page: "/listproperty/featured",
     image: "/assets/pic/featured-properties.png",
-    colorClassName:'bg-lavender-mist'
+    colorClassName:'bg-[#F8F8E4]'
   },
   {
     id: 2,
     name: "Neighbourhoods",
     page: "/neighbourhood",
     image: "/assets/pic/neighbour-hood.png",
-    colorClassName:'bg-rum-rwizzle'
+    colorClassName:'bg-[#F8F8E4]'
   },
   {
     id: 5,
     name: "Off Plan Properties",
     page: "/off-plan",
     image: "/assets/pic/offplan 1.png",
-    colorClassName:'bg-frost'
+    colorClassName:'bg-[#ECF6DF]'
 
   },
   {
@@ -37,14 +37,14 @@ const CAT = [
     name: "Ready Properties",
     page: "/listproperty/readytomove",
     image: "/assets/pic/read-properties.png",
-    colorClassName:'bg-pattens-blue'
+    colorClassName:'bg-[#E3F1FF]'
   },
   {
     id: 6,
     name: "Highest ROI",
     page: "/listproperty/verifiedproperties",
     image: "/assets/pic/heighest-roi.png",
-    colorClassName:'bg-lavender-mist'
+    colorClassName:'bg-[#F8F8E4]'
   },
 ];
 

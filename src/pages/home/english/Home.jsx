@@ -1,7 +1,5 @@
 import "./home.scss";
 import { useNavigate } from "react-router-dom";
-import HeaderOld from "../../../components/header";
-// import ImageFrame from "../imageframe";
 // import HomeFormCard from "../homeformcard";
 import { FaChevronLeft,FaChevronRight } from "react-icons/fa";
 import HomeFormCard from "./HomeFormCard";
@@ -21,25 +19,23 @@ import SearchIcon from "../../../components/svg/search";
 import TitleComponent from "../../../components/TitleComponent";
 import Banner from "../banner/Banner";
 import Blog from "./Blog";
-import RightArrow from "../../../components/svg/rightarrow";
-// import "../../dailyblog/english/blog.scss";
-// import HomeBanner from './HomeBanner';
-// import './Blog.scss';
-// Import Swiper React components
-
-// Import Swiper styles
 
 const Home = (props) => {
   const [bannerFormUi, setBannerForUi] = useState(false);
   const [ImageIndex, setImageIndex] = useState(0);
   // const navigate = useNavigate();
+
   useEffect(() => {
     props.clearHomeProperty();
-    console.log('first')
     props.getBlogWeb();
+    // props.onHomeSearchInputChange();
   }, []);
 
-  console.log(bannerFormUi, "bannerFormUi");
+  // props.homeProperty()
+
+
+  console.log(props,'props')
+
   const [advancedSearch, setAdvancedSearch] = useState(false);
 
   const handleClickSearch = (status) => {
@@ -163,8 +159,9 @@ const Home = (props) => {
           content="Freehold Properties in Dubai | Residential Properties in Dubai | Commercial properties in UAE - Property Seller"
         />
       </Helmet>
-      {/* <Header customClass="home-header-class" /> */}
-      {/* <HeaderOld customClass="home-header-class" /> */}
+
+
+
       <Header />
       <HomeBanner
         stateForButton={bannerFormUi}
@@ -177,13 +174,13 @@ const Home = (props) => {
             </div>
             <div className="home-banner-button-container">
               <div
-                className="home-banner-buttons-div bg-pure-black text-pure-white cursor-pointer"
+                className="home-banner-buttons-div bg-[#000] text-pure-white cursor-pointer"
                 onClick={() => handleClickSearch(true)}
               >
                 <SearchIcon fill="#fff" />
-                <button>Property Search</button>
+                <button className="text-[#fff]">Property Search</button>
               </div>
-              <div className="home-banner-buttons-div bg-pure-white text-black">
+              <div className="home-banner-buttons-div bg-pure-white text-black bg-[#fff]">
                 <HomeIcon fill={"#"} />
                 <button>All Properties</button>
               </div>
@@ -191,24 +188,24 @@ const Home = (props) => {
           </>
         )}
         {bannerFormUi && (
-          // <HomeFormCard
-          //   onInputChange={props.onHomeSearchInputChange}
-          //   onSearchLocation={props.getHomeLocationSearch}
-          //   homeSearch={props.homeSearch}
-          //   onSearch={(params) => {
-          //     console.log(params,'params')
-          //     navigate(`/property-search?limit=6&offset=0${params}`);
-          //   }}
-          //   advancedSearch={advancedSearch}
-          //   setAdvancedSearch={setAdvancedSearch}
-          // />
-          <HomeFormCard />
+          <HomeFormCard
+          searchCount={props.searchCount}
+          onHomeSearchInputChange={props.onHomeSearchInputChange}
+          />
         )}
+        {/* {JSON.stringify(props.searchCount)} */}
+        {/* {
+
+        // console.log(props.searchCount,'props.homeProperty')
+        } */}
+        {/* {console.log(props.onHomeSearchInputChange,'props.onHomeSearchInputChange')} */}
       </HomeBanner>
-      {/* <ImageFrame advancedSearch={advancedSearch} /> */}
+
+
       <div className="mt-20 mb-20">
         <HomeCategory advancedSearch={advancedSearch} />
       </div>
+
       {/* Proprety Type */}
       <div className="">
         <TitleComponent
@@ -289,8 +286,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+                <span className="w-[80px]">Dubai</span>
+                <h2>Marina</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -305,8 +302,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+                <span className="w-[80px]">Dubai</span>
+                <h2>Downtown</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -321,8 +318,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+                <span className="w-[80px]">Dubai</span>
+                <h2>The Palm Jumeriah</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -337,8 +334,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+                <span className="w-[80px]">Dubai</span>
+                <h2>Al Reem Island</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -353,8 +350,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+              <span className="w-[80px]">Dubai</span>
+                <h2>Al Reem Island</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -369,8 +366,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+                <span className="w-[80px]">Dubai</span>
+                <h2>Marina</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -385,8 +382,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+              <span className="w-[80px]">Dubai</span>
+                <h2>Downtown</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -401,8 +398,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+              <span className="w-[80px]">Dubai</span>
+                <h2>The Palm Jumeriah</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -417,8 +414,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+              <span className="w-[80px]">Dubai</span>
+                <h2>Al Reem Island</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">
@@ -433,8 +430,8 @@ const Home = (props) => {
                 alt=""
               />
               <div className="cites-based-card-container absolute top-0 mt-4 ml-2 flex gap-3 flex-col ">
-                <span>span</span>
-                <h2>title</h2>
+              <span className="w-[80px]">Dubai</span>
+                <h2>Al Reem Island</h2>
               </div>
             </div>
             <div className="cites-based-paragraph">

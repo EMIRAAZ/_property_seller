@@ -1,4 +1,4 @@
-import axios from '../../../utils/axios';
+import axios from "../../../utils/axios";
 import {
   GET_HOME_PROPERTY,
   GET_HOME_PROPERTY_ERROR,
@@ -8,9 +8,10 @@ import {
   GET_HOME_LOCATION_SEARCH_ERROR,
   GET_HOME_LOCATION_SEARCH_STARTED,
   CLEAR_HOME_PROPERTY,
-} from '../../constants';
+  GET_HOME_SEARCH_RESULTS_COUNT,
+} from "../../constants";
 
-export const clearHomeProperty = params => {
+export const clearHomeProperty = (params) => {
   return {
     type: CLEAR_HOME_PROPERTY,
   };
@@ -18,7 +19,7 @@ export const clearHomeProperty = params => {
 
 /// home property ///
 
-const getHomePropertyStarted = params => {
+const getHomePropertyStarted = (params) => {
   return {
     type: GET_HOME_PROPERTY_STARTED,
     payload: params,
@@ -32,10 +33,10 @@ const getHomePropertyError = () => {
 };
 
 export const getHomeProperty =
-  (params = '', search) =>
-  async dispatch => {
+  (params = "", search) =>
+  async (dispatch) => {
     try {
-      dispatch(getHomePropertyStarted(search ? params : ''));
+      dispatch(getHomePropertyStarted(search ? params : ""));
       const res = await axios.get(`/api/property?${params}`);
       dispatch({
         type: GET_HOME_PROPERTY,
@@ -50,7 +51,7 @@ export const getHomeProperty =
 
 /// home search ///
 
-export const onHomeSearchInputChange = payload => {
+export const onHomeSearchInputChange = (payload) => {
   return {
     type: HOME_SEARCH_INPUT_CHANGE_ITEM,
     payload: payload,
@@ -73,7 +74,7 @@ const getHomeLocationSearchError = () => {
   };
 };
 
-export const getHomeLocationSearch = location => async dispatch => {
+export const getHomeLocationSearch = (location) => async (dispatch) => {
   try {
     dispatch(getHomeLocationSearchStarted());
     const res = await axios.post(`/api/location`, { location });
@@ -88,3 +89,19 @@ export const getHomeLocationSearch = location => async dispatch => {
 };
 
 /// home location search ///
+
+//  search  results of home pagwe search and get count to view the home search black button
+export const setHomePageSearchResultsCount = (data) => async (dispatch) => {
+  try {
+    dispatch({ type: "GET_HOME_SEARCH_RESULTS_COUNT_STARTED" });
+    const res = await axios.post(`/api/location`, data);
+    dispatch({
+      type: GET_HOME_SEARCH_RESULTS_COUNT,
+      payload: res.data,
+    });
+  }  catch (e) {
+    dispatch({type:'GET_HOME_SEARCH_RESULTS_COUNT_ERROR'});
+  }
+};
+
+// props.onHomeSearchInputChange;

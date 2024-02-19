@@ -8,6 +8,7 @@ import {
   GET_HOME_LOCATION_SEARCH_ERROR,
   GET_HOME_LOCATION_SEARCH_STARTED,
   HOME_SEARCH_INPUT_CHANGE_ITEM,
+  GET_HOME_SEARCH_RESULTS_COUNT,
 } from '../../constants';
 
 const reducer = (state = initialState, action) => {
@@ -63,6 +64,11 @@ const reducer = (state = initialState, action) => {
           [action.payload.key]: action.payload.value,
         },
       };
+      case GET_HOME_SEARCH_RESULTS_COUNT :
+        return {
+         ...state,
+         searchCount:action.payload
+        }
     case GET_HOME_LOCATION_SEARCH:
       return {
         ...state,
