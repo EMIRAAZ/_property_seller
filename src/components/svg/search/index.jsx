@@ -1,29 +1,34 @@
-const SearchIcon = ({
-  className,
-  width = '16',
-  height = '24',
-  viewbox = '0 0 16 24',
-  fill = '#ffffff',
-}) => {
+import React from "react";
+
+function index({ className,svgClassName = 'w-4 h-4',stroke = '#000' }) {
   return (
     <div className={className}>
       <svg
-        width="3.823vh"
-        height="3.058vh"
-        viewBox="0 0 15 23"
+      className={svgClassName}
+      
+        viewBox="0 -0.5 25 25"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M7.60268 3.9707C3.7176 3.9707 0.556641 7.13166 0.556641 11.0167C0.556641 14.902 3.7176 18.0628 7.60268 18.0628C11.488 18.0628 14.6487 14.902 14.6487 11.0167C14.6487 7.13166 11.488 3.9707 7.60268 3.9707ZM7.60268 16.762C4.43479 16.762 1.85745 14.1847 1.85745 11.0168C1.85745 7.84888 4.43479 5.27151 7.60268 5.27151C10.7706 5.27151 13.3479 7.84885 13.3479 11.0167C13.3479 14.1846 10.7706 16.762 7.60268 16.762Z"
-          fill={fill}
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M5.5 11.1455C5.49956 8.21437 7.56975 5.69108 10.4445 5.11883C13.3193 4.54659 16.198 6.08477 17.32 8.79267C18.4421 11.5006 17.495 14.624 15.058 16.2528C12.621 17.8815 9.37287 17.562 7.3 15.4895C6.14763 14.3376 5.50014 12.775 5.5 11.1455Z"
+          stroke={stroke}
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
         <path
-          d="M16.3666 18.86L12.6376 15.131C12.3835 14.8769 11.972 14.8769 11.7179 15.131C11.4638 15.3849 11.4638 15.7968 11.7179 16.0507L15.4469 19.7797C15.5739 19.9067 15.7402 19.9702 15.9067 19.9702C16.073 19.9702 16.2395 19.9067 16.3666 19.7797C16.6207 19.5258 16.6207 19.1139 16.3666 18.86Z"
-          fill={fill}
+          d="M15.989 15.4905L19.5 19.0015"
+          stroke={stroke}
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
       </svg>
     </div>
   );
-};
-export default SearchIcon;
+}
+
+export default index;

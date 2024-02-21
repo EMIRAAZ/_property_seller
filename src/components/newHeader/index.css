@@ -76,11 +76,11 @@
     }
     .mobile-view .home-header{
         position: absolute;
-        top: 2.046vh;
-        height: 15.385vh;
+        top: 1.6046vh;
+        height: 12.385vh;
         z-index: 1;
-        width: 90%;
-        border-radius: 3.058vh;
+        width: 94%;
+        border-radius: 1.558vh;
     }
     /* ------------------------- */
     .home-header-links-container .mobile-hide{

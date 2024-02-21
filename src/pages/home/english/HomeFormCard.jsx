@@ -8,20 +8,18 @@ import {
   SelectBottomIcon,
 } from "../../../components/svgicons";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-export default function HomeFormCard({onHomeSearchInputChange,searchCount}) {
+export default function HomeFormCard({ onHomeSearchInputChange, searchCount }) {
+  const [propertyActive, setPropertyTypeActive] = useState("");
+  const [bedActive, setBedActive] = useState(null);
+  const [priceTo, setPriceTo] = useState(null);
+  const [priceFrom, setPriceFrom] = useState(null);
+  const [priceFromActive, setPriceFromActive] = useState(false);
+  const [priceToActive, setPriceToActive] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
-
-  const [propertyActive,setPropertyTypeActive] = useState('')
-  const [bedActive,setBedActive] = useState(null)
-  const [priceTo,setPriceTo] = useState(null);
-  const [priceFrom,setPriceFrom] = useState(null);
-  const [priceFromActive,setPriceFromActive] = useState(false);
-  const [priceToActive,setPriceToActive] = useState(false);
-  const [searchQuery,setSearchQuery] = useState('');
-
-
-  console.log(bedActive,propertyActive,priceFrom,priceTo,'-------- ')
+  console.log(bedActive, propertyActive, priceFrom, priceTo, "-------- ");
 
   // price from list obj
   const price_from_list = [
@@ -55,7 +53,7 @@ export default function HomeFormCard({onHomeSearchInputChange,searchCount}) {
     { name: "3,000,000", value: 3000000 },
     { name: "4,000,000", value: 4000000 },
     { name: "5,000,000", value: 5000000 },
-  ]
+  ];
 
   const price_to_list = [
     { name: "300,000", value: 300000 },
@@ -88,60 +86,55 @@ export default function HomeFormCard({onHomeSearchInputChange,searchCount}) {
     { name: "3,000,000", value: 3000000 },
     { name: "4,000,000", value: 4000000 },
     { name: "5,000,000", value: 5000000 },
-  ]
+  ];
 
-  const searchRef = useRef(null)
+  const searchRef = useRef(null);
 
-  const [firstTimeFalse,setFirstTimeFalse] = useState(false)
+  const [firstTimeFalse, setFirstTimeFalse] = useState(false);
 
-  const handleChange = (e)=>{
-    console.log(e.target.value,'---')
-    setSearchQuery(e.target.value)
-  }
+  const handleChange = (e) => {
+    console.log(e.target.value, "---");
+    setSearchQuery(e.target.value);
+  };
 
-  useEffect(()=>{
-    
-    
-    
-    if(priceFrom?.value >= priceTo?.value){
-      setPriceTo(null)
+  useEffect(() => {
+    if (priceFrom?.value >= priceTo?.value) {
+      setPriceTo(null);
     }
-    if(!(priceFrom?.name)){
-      setPriceTo(null)
+    if (!priceFrom?.name) {
+      setPriceTo(null);
     }
-    console.log('mounting for component form in home overlap full form')
-  },[priceFromActive])
+    console.log("mounting for component form in home overlap full form");
+  }, [priceFromActive]);
 
-
-  useEffect(()=>{
-
-    if(firstTimeFalse){
+  useEffect(() => {
+    if (firstTimeFalse) {
       setTimeout(() => {
-        
-        if(searchRef.current.value === searchQuery){
+        if (searchRef.current.value === searchQuery) {
           onHomeSearchInputChange({
-            searchQuery:searchQuery,
-            priceFrom:priceFrom?.value,
-            priceTo:priceTo?.value,
-            propertyActive:propertyActive,
-            bedActive:bedActive
-          })
+            searchQuery: searchQuery,
+            priceFrom: priceFrom?.value,
+            priceTo: priceTo?.value,
+            propertyActive: propertyActive,
+            bedActive: bedActive,
+          });
         }
       }, 500);
-      
     }
-    setFirstTimeFalse(true)
-
-    
-
-  },[bedActive,propertyActive,searchQuery,priceFrom,priceTo])
-
+    setFirstTimeFalse(true);
+  }, [bedActive, propertyActive, searchQuery, priceFrom, priceTo]);
 
   return (
     <div className="form-home-overlap-container">
       <div className="form-home-location-div">
         <LocationIcon />
-        <input type="text" ref={searchRef} name="searchQuery" onChange={handleChange} placeholder="Search City, Reference id.." />
+        <input
+          type="text"
+          ref={searchRef}
+          name="searchQuery"
+          onChange={handleChange}
+          placeholder="Search City, Reference id.."
+        />
       </div>
       <div className="form-home-div">
         <div className="form-home-div icons-div">
@@ -149,16 +142,36 @@ export default function HomeFormCard({onHomeSearchInputChange,searchCount}) {
           <p className="form-home-label-name">Proprety Type</p>
         </div>
         <div className="form-home-propertyType-container">
-          <div onClick={()=>setPropertyTypeActive('apartment')} className={`${ propertyActive === 'apartment' && 'active'} form-home-propertyType-type`}>
+          <div
+            onClick={() => setPropertyTypeActive("apartment")}
+            className={`${
+              propertyActive === "apartment" && "active"
+            } form-home-propertyType-type`}
+          >
             <p>Apartment</p>
           </div>
-          <div onClick={()=>setPropertyTypeActive('villa')} className={`${ propertyActive === 'villa' && 'active'} form-home-propertyType-type`}>
+          <div
+            onClick={() => setPropertyTypeActive("villa")}
+            className={`${
+              propertyActive === "villa" && "active"
+            } form-home-propertyType-type`}
+          >
             <p>Villa</p>
           </div>
-          <div onClick={()=>setPropertyTypeActive('townhouse')} className={`${ propertyActive === 'townhouse' && 'active'} form-home-propertyType-type`}>
+          <div
+            onClick={() => setPropertyTypeActive("townhouse")}
+            className={`${
+              propertyActive === "townhouse" && "active"
+            } form-home-propertyType-type`}
+          >
             <p>Townhouse</p>
           </div>
-          <div onClick={()=>setPropertyTypeActive('penthouse')} className={`${ propertyActive === 'penthouse' && 'active'} form-home-propertyType-type`}>
+          <div
+            onClick={() => setPropertyTypeActive("penthouse")}
+            className={`${
+              propertyActive === "penthouse" && "active"
+            } form-home-propertyType-type`}
+          >
             <p>Penthouse</p>
           </div>
         </div>
@@ -169,28 +182,52 @@ export default function HomeFormCard({onHomeSearchInputChange,searchCount}) {
           <p className="form-home-label-name">Proprety Type</p>
         </div>
         <div className="form-home-propertyType-container">
-          <div onClick={()=>setBedActive('0')} className={`form-home-bedRoom ${bedActive === '0' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("0")}
+            className={`form-home-bedRoom ${bedActive === "0" && "bed-active"}`}
+          >
             <p>Studio</p>
           </div>
-          <div onClick={()=>setBedActive('1')} className={`form-home-bedRoom ${bedActive === '1' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("1")}
+            className={`form-home-bedRoom ${bedActive === "1" && "bed-active"}`}
+          >
             <p>1</p>
           </div>
-          <div onClick={()=>setBedActive('2')} className={`form-home-bedRoom ${bedActive === '2' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("2")}
+            className={`form-home-bedRoom ${bedActive === "2" && "bed-active"}`}
+          >
             <p>2</p>
           </div>
-          <div onClick={()=>setBedActive('3')} className={`form-home-bedRoom ${bedActive === '3' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("3")}
+            className={`form-home-bedRoom ${bedActive === "3" && "bed-active"}`}
+          >
             <p>3</p>
           </div>
-          <div onClick={()=>setBedActive('4')} className={`form-home-bedRoom ${bedActive === '4' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("4")}
+            className={`form-home-bedRoom ${bedActive === "4" && "bed-active"}`}
+          >
             <p>4</p>
           </div>
-          <div onClick={()=>setBedActive('5')} className={`form-home-bedRoom ${bedActive === '5' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("5")}
+            className={`form-home-bedRoom ${bedActive === "5" && "bed-active"}`}
+          >
             <p>5</p>
           </div>
-          <div onClick={()=>setBedActive('6')} className={`form-home-bedRoom ${bedActive === '6' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("6")}
+            className={`form-home-bedRoom ${bedActive === "6" && "bed-active"}`}
+          >
             <p>6</p>
           </div>
-          <div onClick={()=>setBedActive('7')} className={`form-home-bedRoom ${bedActive === '7' && 'bed-active' }`}>
+          <div
+            onClick={() => setBedActive("7")}
+            className={`form-home-bedRoom ${bedActive === "7" && "bed-active"}`}
+          >
             <p>7+</p>
           </div>
         </div>
@@ -203,52 +240,87 @@ export default function HomeFormCard({onHomeSearchInputChange,searchCount}) {
         <div className="price-section">
           <div className="price-section-container">
             <div className="relative w-full">
-              <div  className={`price-div w-full ${priceFromActive && 'active'}`}>
-                <p onClick={()=>setPriceFromActive(!priceFromActive)}>{ priceFrom?.name ? priceFrom?.name : 'Price From'}</p>
-                {  priceFrom?.name ?  <p onClick={()=>{
-                  setPriceFromActive(!priceFromActive)
-                  setPriceFrom(null)
-                }}>&#x2715;</p>  : <SelectBottomIcon/>}
+              <div
+                className={`price-div w-full ${priceFromActive && "active"}`}
+              >
+                <p onClick={() => setPriceFromActive(!priceFromActive)}>
+                  {priceFrom?.name ? priceFrom?.name : "Price From"}
+                </p>
+                {priceFrom?.name ? (
+                  <p
+                    onClick={() => {
+                      setPriceFromActive(!priceFromActive);
+                      setPriceFrom(null);
+                    }}
+                  >
+                    &#x2715;
+                  </p>
+                ) : (
+                  <SelectBottomIcon />
+                )}
               </div>
-             { priceFromActive && <div className="price-from-lists">
-                {
-                  price_from_list.map(({name,value},index)=>{
-                    return <p key={index} onClick={()=>{
-                      setPriceFrom({index,name,value})
-                      setPriceFromActive(!priceFromActive)
-                    }} className={`price-from-list ${priceFrom?.index === index && 'active'  } `}>{name}</p>
-                  })
-                }
-              </div>}
+              {priceFromActive && (
+                <div className="price-from-lists">
+                  {price_from_list.map(({ name, value }, index) => {
+                    return (
+                      <p
+                        key={index}
+                        onClick={() => {
+                          setPriceFrom({ index, name, value });
+                          setPriceFromActive(!priceFromActive);
+                        }}
+                        className={`price-from-list ${
+                          priceFrom?.index === index && "active"
+                        } `}
+                      >
+                        {name}
+                      </p>
+                    );
+                  })}
+                </div>
+              )}
             </div>
             <div className="relative w-full">
-              <div onClick={()=>setPriceToActive(!priceToActive)} className={`price-div w-full ${priceToActive && 'active'}`}>
-                <p>{ priceTo?.name ? priceTo.name : 'Price To'}</p>
-                <SelectBottomIcon/>
+              <div
+                onClick={() => setPriceToActive(!priceToActive)}
+                className={`price-div w-full ${priceToActive && "active"}`}
+              >
+                <p>{priceTo?.name ? priceTo.name : "Price To"}</p>
+                <SelectBottomIcon />
               </div>
-             { priceToActive && <div className="price-from-lists">
-                {
-                  price_to_list.filter((items)=> priceFrom?.value < items.value )
-                  .map(({name,value},index)=>{
-                    return ( 
-                      <p key={index} 
-                         onClick={()=>{
-                         setPriceTo({index,name,value})
-                         setPriceToActive(!priceToActive)
-                        }} 
-                        className={`price-from-list ${priceTo?.index === index && 'active'  } `}>{name}</p>
-                    )
-                  })
-                }
-              </div>}
+              {priceToActive && (
+                <div className="price-from-lists">
+                  {price_to_list
+                    .filter((items) => priceFrom?.value < items.value)
+                    .map(({ name, value }, index) => {
+                      return (
+                        <p
+                          key={index}
+                          onClick={() => {
+                            setPriceTo({ index, name, value });
+                            setPriceToActive(!priceToActive);
+                          }}
+                          className={`price-from-list ${
+                            priceTo?.index === index && "active"
+                          } `}
+                        >
+                          {name}
+                        </p>
+                      );
+                    })}
+                </div>
+              )}
             </div>
-            
           </div>
           <div className="filter-btn-div">
-            <button>Show {searchCount.data ? searchCount.data : 0} results</button>
-            <p className="" style={{color:"red"}}>
-            {/* {searchCount ? searchCount : 0} */}
-            {/* {console.log(searchCount,'searchCount')} */}
+            <Link to={"/property-search"}>
+              <button>
+                Show {searchCount.data ? searchCount.data : 0} results
+              </button>
+            </Link>
+            <p className="" style={{ color: "red" }}>
+              {/* {searchCount ? searchCount : 0} */}
+              {/* {console.log(searchCount,'searchCount')} */}
             </p>
           </div>
         </div>

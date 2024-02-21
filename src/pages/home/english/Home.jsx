@@ -32,6 +32,9 @@ const Home = (props) => {
     // props.onHomeSearchInputChange();
   }, []);
 
+
+  const navigator = useNavigate()
+
   // props.homeProperty()
 
   console.log(props, "props");
@@ -168,23 +171,28 @@ const Home = (props) => {
         {!bannerFormUi && (
           <>
             <div className="home-banner-mainTitle">
-              <p className="font-sf-pro-regular">New Properties, Everyday...</p>
+              <p className="text-[40px] sm:text-[70px] sm:pb-2">
+                New Properties, Everyday...
+              </p>
             </div>
-            <div className="home-banner-button-container">
-              <Link to={'/property-search'}>
-                <div
-                  className="home-banner-buttons-div bg-[#000] text-pure-white cursor-pointer"
-                  onClick={() => handleClickSearch(true)}
-                >
-                  <SearchIcon fill="#fff" />
-                  <button className="text-[#fff]">Property Search</button>
-                </div>
-              </Link>
+            <div className="w-full sm:flex sm:justify-center sm:items-center sm:gap-3 ">
+              <div
+                className="mb-3 sm:m-0 m-auto sm:w-[200px] gap-1 flex justify-center py-5 sm:py-3 rounded-10px w-[95%]  bg-[#000] text-pure-white cursor-pointer"
+                onClick={() => handleClickSearch(true)}
+              >
+                <SearchIcon
+                  svgClassName={"w-[45px] h-[34px] sm:w-[25px]"}
+                  stroke="#fff"
+                />
+                <button className="text-[#fff] font-bold sm:font-medium">
+                  Property Search
+                </button>
+              </div>
 
               <Link to={"/all-properties"}>
-                <div className=" home-banner-buttons-div bg-pure-white text-black bg-[#fff]">
+                <div className="mb-3 sm:w-[200px] m-auto sm:m-0 flex justify-center py-5 sm:py-4 items-center gap-4 rounded-10px w-[95%] bg-pure-white text-black font-medium bg-[#fff]">
                   <HomeIcon fill={"#000"} />
-                  <button>All Properties</button>
+                  <button className="font-bold">All Properties</button>
                 </div>
               </Link>
             </div>
@@ -204,36 +212,42 @@ const Home = (props) => {
         {/* {console.log(props.onHomeSearchInputChange,'props.onHomeSearchInputChange')} */}
       </HomeBanner>
 
-      <div className="mt-20 mb-20">
+      <div className="mt-20 mb-10">
         <HomeCategory advancedSearch={advancedSearch} />
       </div>
 
       {/* Proprety Type */}
       <div className="">
         <TitleComponent
+          classTitleTwo={"text-[#666666]"}
           className={"home-property-type font-sf-pro-medium"}
           titleOne={"Availability Based on "}
           titleTwo={" Proprety Type"}
         />
-        <div className="flex gap-5 my-20 justify-center flex-wrap">
+        <div className="flex gap-5 my-8 justify-center flex-wrap">
           {propertyTypeObjData.map(({ name, paragraph, imageSrc }, index) => (
-            <div key={index} className="property-type">
-              <div className="property-type-image-container">
-                <img loading="lazy" src={imageSrc} alt="" />
+            // <Link to={'/property-search'}>
+              <div onClick={()=> navigator('/property-search')} key={index} className="property-type">
+                <div className="property-type-image-container">
+                  <img loading="lazy" src={imageSrc} alt="" />
+                </div>
+                <div className="property-type-title">
+                  <h1>{name}</h1>
+                </div>
+                <div className="property-type-paragraph">
+                  <p>{paragraph}</p>
+                </div>
               </div>
-              <div className="property-type-title">
-                <h1>{name}</h1>
-              </div>
-              <div className="property-type-paragraph">
-                <p>{paragraph}</p>
-              </div>
-            </div>
+            // </Link>
           ))}
         </div>
       </div>
       {/* -------------- */}
       {/* banner section */}
+      <div className="my-16">
       <Banner />
+
+      </div>
       {/* banner section */}
       {/* <div className="w-full p-5 bg-black text-white font-bold text-xl flex justify-center banner-cls sm:text-lg">
         Explore what is up for&nbsp;
@@ -255,10 +269,10 @@ const Home = (props) => {
             titleTwo={"Properties"}
             className={"mt-10 mb-8   "}
             classTitleOne={
-              "citiy-based-propertyMain-title-first text-[20px] sm:text-[50px]"
+              "citiy-based-propertyMain-title-first text-[20px] sm:text-[45px]"
             }
             classTitleTwo={
-              "citiy-based-propertyMain-title-last text-[40px] sm:text-[70px]"
+              "citiy-based-propertyMain-title-last text-[40px] sm:text-[65px]"
             }
           />
 
@@ -278,12 +292,12 @@ const Home = (props) => {
 
           <div className="m-auto  sm:m-0 mt-5">
             <button className=" citiy-based-propertyMain-btn">
-              View All Properties{" "}
+              View All Cities{" "}
             </button>
           </div>
         </div>
 
-        <div className="hidden sm:flex  m-auto gap-5 w-[90%] flex-wrap justify-center items-center  ">
+        <div className="hidden sm:flex  m-auto gap-5 w-[90%]  justify-between  flex-wrap  items-center  ">
           <div className="city-based-properties-div">
             <div className="w-[211px] relative h-[200px] rounded-t-10px rounded-b-10px overflow-hidden">
               <img

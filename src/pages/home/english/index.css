@@ -38,7 +38,7 @@
 .home-banner-content .home-banner-mainTitle p {
   color: #fff;
   text-align: center;
-  font-size: 10.703vh;
+  /* font-size: 10.703vh; */
   font-style: normal;
   font-weight: 400;
 }
@@ -107,7 +107,7 @@
     z-index: 2;
   }
   .home-banner-content .home-banner-mainTitle p {
-    font-size: 7.645vh;
+    /* font-size: 7.645vh; */
   }
   .home-banner-content .home-banner-button-container {
     flex-wrap: wrap;
@@ -121,7 +121,7 @@
 
 @media (max-width: 476px) {
   .home-english .property-type {
-    width: 90%;
+    width: 95%;
   }
 }
 
