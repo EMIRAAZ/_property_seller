@@ -16,7 +16,7 @@ function Banner() {
             </p>
             <button
               style={{ width: "fit-content" }}
-              className="rounded-10px bg-white flex text-[#141111] text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
+              className="rounded-10px bg-white  flex text-[#141111] text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
             >
               View all properties
             </button>
@@ -83,7 +83,7 @@ function Banner() {
           </p>
           <button
             style={{ width: "fit-content" }}
-            className="rounded-10px bg-pure-white flex bg-[#fff] text-[#000] text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
+            className="rounded-10px bg-pure-white flex text-[13px] bg-[#fff] text-[#000] text-center font-semibold font-poppins text-xs w-90-per py-3 px-5 justify-center items-center gap-5"
           >
             View all properties
           </button>

@@ -55,7 +55,7 @@ const HomeCategory = (props) => {
     navigate(`${page}`);
   };
   const renderHomeCategoryComponent = () => {
-    return CAT.map((propertyType) => (
+    return CAT.map((propertyType,index) => (
       <div
         key={propertyType.id}
         className={`property-type-component-outer flex-wrap ${propertyType.colorClassName}  `}
@@ -63,7 +63,7 @@ const HomeCategory = (props) => {
         onContextMenu={(e) => e.preventDefault()}
       >
         <div className="property-type-component-inner-paragraph">
-        <a className="pl-8 font-sf-pro-medium" >{propertyType.name}</a>     
+        <a className={`pl-8 font-sf-pro-medium `} >{propertyType.name}</a>     
            </div>
         <div className="property-type-component-inner">
           <div className="property-type-component-inner-div">

@@ -164,6 +164,10 @@ const Home = (props) => {
       </Helmet>
 
       <Header />
+
+
+
+      {/* the landing page component area , All Properties, Property Search here, Landing page title also */}
       <HomeBanner
         stateForButton={bannerFormUi}
         handleClickSearch={handleClickSearch}
@@ -177,20 +181,20 @@ const Home = (props) => {
             </div>
             <div className="w-full sm:flex sm:justify-center sm:items-center sm:gap-3 ">
               <div
-                className="mb-3 sm:m-0 m-auto sm:w-[200px] gap-1 flex justify-center py-5 sm:py-3 rounded-10px w-[95%]  bg-[#000] text-pure-white cursor-pointer"
+                className="mb-3 sm:m-0 m-auto sm:w-[200px] gap-2.5 flex justify-center py-10 sm:py-3 rounded-10px w-[95%]  bg-[#000] text-pure-white cursor-pointer"
                 onClick={() => handleClickSearch(true)}
               >
                 <SearchIcon
                   svgClassName={"w-[45px] h-[34px] sm:w-[25px]"}
                   stroke="#fff"
                 />
-                <button className="text-[#fff] font-bold sm:font-medium">
+                <button className="text-[#fff] poppins-semibold text-[16px]  font-bold sm:font-medium">
                   Property Search
                 </button>
               </div>
 
               <Link to={"/all-properties"}>
-                <div className="mb-3 sm:w-[200px] m-auto sm:m-0 flex justify-center py-5 sm:py-4 items-center gap-4 rounded-10px w-[95%] bg-pure-white text-black font-medium bg-[#fff]">
+                <div className="mb-3 sm:w-[200px] m-auto sm:m-0 flex justify-center py-10 sm:py-4 items-center gap-4 rounded-10px w-[95%] bg-pure-white text-black font-medium bg-[#fff]">
                   <HomeIcon fill={"#000"} />
                   <button className="font-bold">All Properties</button>
                 </div>
@@ -211,10 +215,25 @@ const Home = (props) => {
         } */}
         {/* {console.log(props.onHomeSearchInputChange,'props.onHomeSearchInputChange')} */}
       </HomeBanner>
+      {/* -------------------------------------------------- */}
 
-      <div className="mt-20 mb-10">
+
+
+
+
+
+
+
+        {/* Properties categories main component */}
+      <div className="mt-8 mb-10">
         <HomeCategory advancedSearch={advancedSearch} />
       </div>
+      {/* -------------------------------------------- */}
+
+
+
+
+
 
       {/* Proprety Type */}
       <div className="">
@@ -227,24 +246,28 @@ const Home = (props) => {
         <div className="flex gap-5 my-8 justify-center flex-wrap">
           {propertyTypeObjData.map(({ name, paragraph, imageSrc }, index) => (
             // <Link to={'/property-search'}>
-              <div onClick={()=> navigator('/property-search')} key={index} className="property-type">
+              <div onClick={()=> navigator('/property-search')} key={index} className="property-type poppins-medium text-[25px]">
                 <div className="property-type-image-container">
                   <img loading="lazy" src={imageSrc} alt="" />
                 </div>
                 <div className="property-type-title">
-                  <h1>{name}</h1>
+                  <h1 className="">{name}</h1>
                 </div>
-                <div className="property-type-paragraph">
-                  <p>{paragraph}</p>
+                <div className="property-type-paragraph ">
+                  <p  className="text-[15px]">{paragraph}</p>
                 </div>
               </div>
             // </Link>
           ))}
         </div>
       </div>
+      {/* ---------------- */}
+
+
+
       {/* -------------- */}
       {/* banner section */}
-      <div className="my-16">
+      <div className="my-8">
       <Banner />
 
       </div>
@@ -291,7 +314,7 @@ const Home = (props) => {
           </div>
 
           <div className="m-auto  sm:m-0 mt-5">
-            <button className=" citiy-based-propertyMain-btn">
+            <button className=" citiy-based-propertyMain-btn text-[14px]">
               View All Cities{" "}
             </button>
           </div>
