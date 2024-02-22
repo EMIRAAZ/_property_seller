@@ -14,18 +14,15 @@ function Header() {
     >
       <div className="home-header">
         <div className="home-header-logo-div">
-          <Link to={'/'}>
-          <img
-            className="object-cover w-full h-full"
-            src="/assets/pic/logo.png"
-            alt=""
-          />
+          <Link to={"/"}>
+            <img
+              className="object-cover w-full h-full"
+              src="/assets/pic/logo.png"
+              alt=""
+            />
           </Link>
         </div>
-        {/* .home-header-links-container{
-        display: none;
-    }
-     */}
+
         <div className="home-header-links-container">
           <ul
             className={`${
@@ -34,13 +31,13 @@ function Header() {
           >
             {/*  */}
             <li>
-              <NavLink to={'/about'}>About</NavLink>
+              <NavLink to={"/about"}>About</NavLink>
             </li>
             <li className="header-link-side-link">
               <p></p>
             </li>
             <li>
-              <NavLink to={'/dailyblog'}>Blog</NavLink>
+              <NavLink to={"/dailyblog"}>Blog</NavLink>
             </li>
             <li className="header-link-side-link">
               <p></p>
@@ -59,36 +56,21 @@ function Header() {
         <div className="mobile-buttons">
           {toggleMobileMenuButton ? (
             <p
-              style={{ fontSize: "5.046vh" }}
+              className="text-[30px] transition-all"
               onClick={() => setToggleMobileMenuButton(false)}
             >
               &#x2715;
             </p>
           ) : (
-            <p onClick={() => setToggleMobileMenuButton(true)}>&#9776;</p>
+            <p
+              onClick={() => setToggleMobileMenuButton(true)}
+              className="text-[30px] transition-all"
+            >
+              &#9776;
+            </p>
           )}
         </div>
       </div>
-      {/* <div className="mobile-nav-container">
-          <ul>
-            <li>
-              <NavLink>HOme</NavLink>
-            </li>
-            <li>
-              <NavLink>HOme</NavLink>
-            </li>
-            <li>
-              <NavLink>HOme</NavLink>
-            </li>
-            <li>
-              <NavLink>HOme</NavLink>
-            </li>
-            <li>
-              <NavLink>HOme</NavLink>
-            </li>
-
-          </ul>
-      </div> */}
     </div>
   );
 }

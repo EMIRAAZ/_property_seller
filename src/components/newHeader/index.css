@@ -55,7 +55,7 @@
 
 
 
-@media(max-width:600px){
+@media(max-width:700px){
   
     .mobile-view{
         width: 100%;
@@ -80,7 +80,7 @@
         height: 12.385vh;
         z-index: 1;
         width: 94%;
-        border-radius: 1.558vh;
+        border-radius: 20px;
     }
     /* ------------------------- */
     .home-header-links-container .mobile-hide{
@@ -103,7 +103,7 @@
 
     .home-header-links-container .mobile-navbar-view{
       position: absolute;
-      top: 17.278vh;
+      top: 13.278vh;
       z-index: 14;
       background-color: white;
       left: 0px;

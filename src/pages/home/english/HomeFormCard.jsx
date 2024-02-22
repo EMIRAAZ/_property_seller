@@ -19,7 +19,6 @@ export default function HomeFormCard({ onHomeSearchInputChange, searchCount }) {
   const [priceToActive, setPriceToActive] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  console.log(bedActive, propertyActive, priceFrom, priceTo, "-------- ");
 
   // price from list obj
   const price_from_list = [
@@ -93,7 +92,6 @@ export default function HomeFormCard({ onHomeSearchInputChange, searchCount }) {
   const [firstTimeFalse, setFirstTimeFalse] = useState(false);
 
   const handleChange = (e) => {
-    console.log(e.target.value, "---");
     setSearchQuery(e.target.value);
   };
 
@@ -104,7 +102,6 @@ export default function HomeFormCard({ onHomeSearchInputChange, searchCount }) {
     if (!priceFrom?.name) {
       setPriceTo(null);
     }
-    console.log("mounting for component form in home overlap full form");
   }, [priceFromActive]);
 
   useEffect(() => {
@@ -133,7 +130,7 @@ export default function HomeFormCard({ onHomeSearchInputChange, searchCount }) {
           ref={searchRef}
           name="searchQuery"
           onChange={handleChange}
-          placeholder="Search City, Reference id.."
+          placeholder="Search city, Community.."
         />
       </div>
       <div className="form-home-div">
@@ -179,7 +176,7 @@ export default function HomeFormCard({ onHomeSearchInputChange, searchCount }) {
       <div className="form-home-div">
         <div className="form-home-div icons-div">
           <Bedroom />
-          <p className="form-home-label-name">Proprety Type</p>
+          <p className="form-home-label-name">Bed</p>
         </div>
         <div className="form-home-propertyType-container">
           <div
@@ -318,10 +315,6 @@ export default function HomeFormCard({ onHomeSearchInputChange, searchCount }) {
                 Show {searchCount.data ? searchCount.data : 0} results
               </button>
             </Link>
-            <p className="" style={{ color: "red" }}>
-              {/* {searchCount ? searchCount : 0} */}
-              {/* {console.log(searchCount,'searchCount')} */}
-            </p>
           </div>
         </div>
       </div>

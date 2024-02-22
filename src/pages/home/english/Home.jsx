@@ -163,6 +163,7 @@ const Home = (props) => {
         />
       </Helmet>
 
+
       <Header />
 
 
@@ -175,17 +176,17 @@ const Home = (props) => {
         {!bannerFormUi && (
           <>
             <div className="home-banner-mainTitle">
-              <p className="text-[40px] sm:text-[70px] sm:pb-2">
+              <p className="text-[13vw] sm:text-[55px] font-['sf-pro-display-regular'] sm:pb-2">
                 New Properties, Everyday...
               </p>
             </div>
             <div className="w-full sm:flex sm:justify-center sm:items-center sm:gap-3 ">
               <div
-                className="mb-3 sm:m-0 m-auto sm:w-[200px] gap-2.5 flex justify-center py-10 sm:py-3 rounded-10px w-[95%]  bg-[#000] text-pure-white cursor-pointer"
+                className="mb-3 sm:m-0 m-auto sm:w-[200px] gap-2.5 flex justify-center py-6 sm:py-3 rounded-10px w-[95%]  bg-[#000] text-pure-white cursor-pointer"
                 onClick={() => handleClickSearch(true)}
               >
                 <SearchIcon
-                  svgClassName={"w-[45px] h-[34px] sm:w-[25px]"}
+                  svgClassName={"w-[45px] h-[34px] sm:w-[25px] "}
                   stroke="#fff"
                 />
                 <button className="text-[#fff] poppins-semibold text-[16px]  font-bold sm:font-medium">
@@ -194,8 +195,11 @@ const Home = (props) => {
               </div>
 
               <Link to={"/all-properties"}>
-                <div className="mb-3 sm:w-[200px] m-auto sm:m-0 flex justify-center py-10 sm:py-4 items-center gap-4 rounded-10px w-[95%] bg-pure-white text-black font-medium bg-[#fff]">
-                  <HomeIcon fill={"#000"} />
+                <div className="mb-3  sm:w-[200px] m-auto sm:m-0 flex justify-center py-6 sm:py-4 items-center gap-4 rounded-10px w-[95%] bg-pure-white text-black font-medium bg-[#fff]">
+                  <HomeIcon fill={"#000"}
+                  svgClassName={"w-[25px] h-[30px] sm:w-[25px]"}
+                  
+                  />
                   <button className="font-bold">All Properties</button>
                 </div>
               </Link>
@@ -208,12 +212,7 @@ const Home = (props) => {
             onHomeSearchInputChange={props.onHomeSearchInputChange}
           />
         )}
-        {/* {JSON.stringify(props.searchCount)} */}
-        {/* {
-
-        // console.log(props.searchCount,'props.homeProperty')
-        } */}
-        {/* {console.log(props.onHomeSearchInputChange,'props.onHomeSearchInputChange')} */}
+      
       </HomeBanner>
       {/* -------------------------------------------------- */}
 

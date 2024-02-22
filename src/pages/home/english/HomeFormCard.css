@@ -76,9 +76,10 @@
   line-height: normal;
 }
 .form-home-div .form-home-propertyType-container .form-home-bedRoom {
-  height: 5.657vh;
+  height: 37px;
   cursor: pointer;
   padding: 0px 1.988vh;
+  padding: 6px 15px;
   border-radius: 1.529vh;
   border: 0.229vh solid #e4e4e4;
   background: #f7f7f7;
@@ -150,6 +151,7 @@
 /* price list */
 .price-section .price-from-lists{
     height: 30.581vh;
+    z-index: 5;
     transition: all 0.5s;
     overflow-x: auto;
     overflow-y: scroll;
@@ -182,8 +184,11 @@
 
 
 @media(max-width:600px){
+  .price-section .price-from-lists{
+    width: 20.523vh;
+  }
 .form-home-overlap-container{
-    width: 90%;
+    width: 95%;
     height: auto;
     gap: 2.294vh;
 }

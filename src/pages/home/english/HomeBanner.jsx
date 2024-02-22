@@ -14,9 +14,6 @@ function HomeBanner(props) {
       <div className="home-banner-container relative">
         {stateForButton && (
           <div className="relative">
-            {/* <div className="absolute bottom-32 z-50 left-40">
-              <Close />
-            </div> */}
 
             <div
               className="cursor-pointer banner-left-arrow hidden sm:block "
@@ -24,7 +21,7 @@ function HomeBanner(props) {
             >
               <LeftArrowIcon />
             </div>
-            <div onClick={()=>handleClickSearch(false)} className=" block sm:hidden  fixed bottom-3 left-0 z-[1000] h-[200px] w-full">
+            <div onClick={()=>handleClickSearch(false)} className=" block sm:hidden  fixed bottom-3 left-0 z-[1000] h-[100px] w-full">
               {/* <div className="z-[100] absolute top-6 left-9 " style={{color:"red"}}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores, architecto quia. Tempore, sint consequuntur, incidunt eligendi atque molestiae animi rerum dolorum impedit totam, voluptate reprehenderit numquam quidem aperiam. Nam, temporibus?</div> */}
               <div className="absolute w-full z-50 flex flex-col justify-end items-center h-[95%] gap-6  ">
                 <div
@@ -32,9 +29,6 @@ function HomeBanner(props) {
                   className=" border-solid  rounded-20px w-fit p-3 "
                 >
                   <Close />
-                </div>
-                <div className="">
-                  <p className=" bg-[#000] w-24 h-1 rounded-20px"></p>
                 </div>
               </div>
               <div

@@ -1,11 +1,10 @@
 import React from "react";
 
-function HomeIcon({fill = "#000",width = '3.823vh', height = '3.058vh' }) {
+function HomeIcon({fill = "#000",svgClassName = 'w-[3.823vh] 3.058vh' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+    className={svgClassName}
       viewBox="0 0 25 20"
       fill="none"
     >

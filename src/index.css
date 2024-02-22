@@ -41,9 +41,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body{
-  font-family: '';
-} */
+body{
+  font-family: 'Poppins',Arial, Helvetica, sans-serif;
+}
 
 
 
